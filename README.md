@@ -71,10 +71,23 @@ different one, edit the `poster=` and `<source src=` paths in the reel block
 (spaces written as `%20`). Or swap in a YouTube embed — the commented `<iframe>`
 line is right there.
 
-## Other media (home + about)
+## Home & About images (per-page folders)
 
-Drop these in `assets/images/` to fill the remaining placeholders:
-`hero.jpg`, `studio-wide.jpg`, `studio-tall.jpg`, `about.jpg`.
+Images are organized by page. Labeled placeholders are already in place — swap
+each one by replacing the file (keep the same name, or update the path in the HTML):
+
+| Spot | File |
+|---|---|
+| Home hero (right) | `assets/images/home-page/hero.png` |
+| Home studio (wide) | `assets/images/home-page/studio-wide.png` |
+| Home studio (tall) | `assets/images/home-page/studio-tall.png` |
+| About portrait | `assets/images/about-me/portrait.png` |
+
+(The `contact-me` folder isn't used by the current contact layout — it has a form
+and your details, no image. Keep the folder for later or ignore it.)
+
+Socials and email are already filled in (Instagram, X, TikTok, YouTube, itch.io,
+and duskgamesinteractive@gmail.com).
 
 ## Socials & contact form
 
