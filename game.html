@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio — Dusk Games Interactive</title>
-  <meta name="description" content="Games by Dusk Games Interactive — play and download on itch.io." />
+  <title>Game — Dusk Games Interactive</title>
+  <meta name="description" content="A game by Dusk Games Interactive." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -25,16 +25,9 @@
     </div>
   </header>
 
-  <section class="page-head">
-    <div class="wrap">
-      <h1 class="display page-head__title">Games.</h1>
-      <p class="page-head__lede">Everything the studio has shipped, across genres. Click a title for screenshots and a trailer, or play it on itch.io.</p>
-    </div>
-  </section>
-
-  <!-- Cards are built from js/games.js — edit that file to add or change games. -->
-  <section class="games">
-    <div class="wrap games__grid" id="games-grid"></div>
+  <!-- Everything below is filled in by js/game.js based on ?slug= in the URL. -->
+  <section class="game-detail">
+    <div class="wrap" id="game-root"></div>
   </section>
 
   <footer class="site-footer">
@@ -46,7 +39,7 @@
 
   <script src="js/main.js"></script>
   <script src="js/games.js"></script>
-  <script src="js/portfolio.js"></script>
+  <script src="js/game.js"></script>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>

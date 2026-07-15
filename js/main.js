@@ -1,3 +1,10 @@
+// Encode a file path so spaces / punctuation in filenames load correctly,
+// while keeping the folder slashes intact. Used everywhere media is shown.
+function assetURL(path) {
+  if (!path) return "";
+  return path.split("/").map(encodeURIComponent).join("/");
+}
+
 // Mobile navigation toggle
 (function () {
   var toggle = document.querySelector('.nav-toggle');
@@ -9,7 +16,6 @@
     toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
   });
 
-  // Close the menu after tapping a link
   nav.addEventListener('click', function (e) {
     if (e.target.tagName === 'A') {
       nav.classList.remove('open');

@@ -1,78 +1,96 @@
 # Dusk Games Interactive — website
 
-A simple, static 4-page site. No build step, no framework. Just open the
-HTML files or push them to GitHub Pages.
+A simple, static site. No build step, no framework. Push the files to the
+**root** of your GitHub Pages repo (so `index.html` sits at the top level).
 
 ```
-index.html        Home
-portfolio.html    Portfolio / games showcase (all 7 itch.io games)
+index.html        Home (features a trailer)
+portfolio.html    Portfolio — cards for every game (built from js/games.js)
+game.html         One game's page: trailer + screenshot gallery (?slug=…)
 about.html        About + social links
 contact.html      Contact form + email + socials
 css/style.css     All styling (edit colors/fonts at the top)
-js/main.js        Mobile menu toggle
-assets/images/    Your photos + game covers
-assets/videos/    Your videos
+js/games.js       >>> YOUR GAME LIST — edit this to add media <<<
+js/portfolio.js   Builds the portfolio cards
+js/game.js        Builds each game page + the lightbox
+js/main.js        Nav toggle + a path helper
+assets/images/    Your photos + a folder per game
+assets/videos/    Your videos (a folder per game)
 ```
 
-Preview it locally by double-clicking `index.html`.
+Preview locally by double-clicking `index.html`.
 
 ---
 
-## Add your pictures
+## Adding screenshots & trailers (the main thing)
 
-1. Put an image file into `assets/images/`.
-2. The HTML already points at these filenames — match them and the image appears
-   (a dark placeholder shows until you do):
+You keep a folder per game, e.g. `assets/images/games/slime-venture/` with its
+screenshots, and `assets/videos/slime-venture/` with its trailer. To make them
+appear on the site, list them in **`js/games.js`** — that's the only file you edit.
 
-   | Where | File to add |
-   |---|---|
-   | Home hero (right) | `assets/images/hero.jpg` |
-   | Home "One studio" wide | `assets/images/studio-wide.jpg` |
-   | Home "One studio" tall | `assets/images/studio-tall.jpg` |
-   | About portrait | `assets/images/about.jpg` |
-   | Game covers | `assets/images/games/<game>.jpg` (e.g. `the-disappearance.jpg`) |
+Each game has an entry like this:
 
-To use a different filename, edit the `background-image:url('...')` in the HTML.
+```js
+{
+  slug: "slime-venture",
+  title: "Slime Venture",
+  genre: "2.5D shooter",
+  itch: "https://dusk-studios.itch.io/slime-venture",
+  description: "",                                    // optional
+  cover:   "assets/images/games/slime-venture/Final Thumbnail 2.PNG",
+  trailer: "assets/videos/slime-venture/SlimeVenture! Trailer.mp4",  // "" if none
+  screenshots: [
+    "assets/images/games/slime-venture/Level 1 Screenshot 2.PNG",
+    "assets/images/games/slime-venture/Level 2 Screenshot 2.PNG",
+    "assets/images/games/slime-venture/Slime Fight.PNG"
+  ]
+}
+```
 
-## Add a video
+- **cover** — the picture on the Portfolio card (and the trailer's thumbnail).
+- **trailer** — a video file; leave `""` and it's just skipped.
+- **screenshots** — every image here shows in the gallery; click one for full-size.
 
-- **Your own file:** drop it at `assets/videos/reel.mp4` (that's the path the home
-  page already uses). Add `assets/images/reel-poster.jpg` for the thumbnail.
-- **YouTube instead:** in `index.html` delete the `<video>` block and uncomment the
-  `<iframe>` line, replacing `VIDEO_ID`.
+Slime Venture is already filled in as a working example. Do the same for the rest.
 
-## Connect your socials
+### ⚠️ Match filenames EXACTLY — including capital letters
 
-On `about.html` (and the home + contact pages), each social link is `href="#"`.
-Replace `#` with your profile URL. Delete any `<a>…</a>` block you don't use.
-The itch.io link is already set to `https://dusk-studios.itch.io/`.
+GitHub Pages runs on a case-sensitive server, so `Level 2.PNG` and `level 2.png`
+are treated as different files even though Windows treats them the same. Type each
+path in `games.js` exactly as the file is named on disk. If a picture works locally
+but is blank once deployed, a capital-letter or spelling mismatch is almost always
+why. (Spaces and `!` are handled for you — no need to change those.)
 
-## Make the contact form work
+Tip: to avoid the whole issue, you can rename files to lowercase with no spaces
+(e.g. `level-2.png`) and update the paths to match.
 
-GitHub Pages can't send email on its own, so the form uses **Formspree** (free):
+## Change the home-page trailer
 
-1. Sign up at <https://formspree.io> and create a form.
-2. Copy your endpoint (looks like `https://formspree.io/f/abcdwxyz`).
-3. In `contact.html`, replace `YOUR_FORM_ID` in the `action="..."`.
-4. Also update the `mailto:` address to your real email.
+The reel on `index.html` points at the Slime Venture trailer. To feature a
+different one, edit the `poster=` and `<source src=` paths in the reel block
+(spaces written as `%20`). Or swap in a YouTube embed — the commented `<iframe>`
+line is right there.
 
-Don't want a form? Delete the `<form>` block and keep the direct email + socials.
+## Other media (home + about)
 
----
+Drop these in `assets/images/` to fill the remaining placeholders:
+`hero.jpg`, `studio-wide.jpg`, `studio-tall.jpg`, `about.jpg`.
+
+## Socials & contact form
+
+- Replace each `href="#"` social link with your profile URL; delete any you don't use.
+- The contact form uses free **Formspree**: sign up at <https://formspree.io>, create
+  a form, and paste its endpoint into the `action="…"` in `contact.html`. Also set
+  your real email in the `mailto:` link.
 
 ## Publish to GitHub Pages
 
-1. Create a repo on GitHub. If you name it `yourusername.github.io`, the site lives
-   at that address. Any other name puts it at `yourusername.github.io/repo-name/`.
-2. Upload every file/folder here (keep the structure) and commit.
-3. Repo **Settings → Pages → Build and deployment → Source: Deploy from a branch**,
-   pick `main` / `root`, save.
-4. Give it a minute, then visit the URL Pages shows you.
+Put every file/folder here at the **repo root**, commit, then
+**Settings → Pages → Deploy from a branch → `main` / `/(root)`**. The included
+`.nojekyll` file makes Pages serve everything as-is. Give it a minute and
+hard-refresh (Ctrl+F5).
 
-The included `.nojekyll` file tells GitHub Pages to serve files as-is.
+## Re-skin everything
 
-## Re-skin the whole site
-
-Open `css/style.css` and edit the tokens at the top (`:root`) — colors, max width,
-and fonts all live there. The display face is **Anton** and the body is **Inter**,
-both loaded from Google Fonts in each page's `<head>`.
+Edit the tokens at the top of `css/style.css` (`:root`) — colors, width, fonts.
+Display face is **Anton**, body is **Inter**, both from Google Fonts.
