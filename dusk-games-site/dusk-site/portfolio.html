@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio — Dusk Games Interactive</title>
+  <meta name="description" content="Games by Dusk Games Interactive — play and download on itch.io." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header class="site-header on-white">
+    <div class="wrap site-header__inner">
+      <a class="wordmark" href="index.html">Dusk Games Interactive</a>
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <nav class="site-nav">
+        <a href="index.html">Home</a>
+        <a href="portfolio.html" aria-current="page">Portfolio</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-head">
+    <div class="wrap">
+      <h1 class="display page-head__title">Games.</h1>
+      <p class="page-head__lede">Everything the studio has shipped, across genres. Play or download each title on itch.io.</p>
+    </div>
+  </section>
+
+  <!-- ============ GAMES GRID ============
+       To add a cover: drop an image at the path in each style="" below
+       (e.g. assets/images/games/the-disappearance.jpg). A dark placeholder
+       shows until you do. Duplicate a whole <article> block to add a game. -->
+  <section class="games">
+    <div class="wrap games__grid">
+
+      <article class="game-card">
+        <a class="media game-card__media" href="https://dusk-studios.itch.io/the-dissapearance" target="_blank" rel="noopener" style="background-image:url('assets/images/games/the-disappearance.jpg')" aria-label="The Disappearance cover"></a>
+        <h2 class="display game-card__title">The Disappearance</h2>
+        <p class="game-card__meta">Survival horror</p>
+        <a class="btn btn--block" href="https://dusk-studios.itch.io/the-dissapearance" target="_blank" rel="noopener">View game</a>
+      </article>
+
+      <article class="game-card">
+        <a class="media game-card__media" href="https://dusk-studios.itch.io/the-ruins-of-ishgar" target="_blank" rel="noopener" style="background-image:url('assets/images/games/the-ruins-of-ishgar.jpg')" aria-label="The Ruins of Ishgar cover"></a>
+        <h2 class="display game-card__title">The Ruins of Ishgar</h2>
+        <p class="game-card__meta">Adventure</p>
+        <a class="btn btn--block" href="https://dusk-studios.itch.io/the-ruins-of-ishgar" target="_blank" rel="noopener">View game</a>
+      </article>
+
+      <article class="game-card">
+        <a class="media game-card__media" href="https://dusk-studios.itch.io/slime-venture" target="_blank" rel="noopener" style="background-image:url('assets/images/games/slime-venture.jpg')" aria-label="Slime Venture cover"></a>
+        <h2 class="display game-card__title">Slime Venture</h2>
+        <p class="game-card__meta">2.5D shooter</p>
+        <a class="btn btn--block" href="https://dusk-studios.itch.io/slime-venture" target="_blank" rel="noopener">View game</a>
+      </article>
+
+      <article class="game-card">
+        <a class="media game-card__media" href="https://dusk-studios.itch.io/the-empty-vessel" target="_blank" rel="noopener" style="background-image:url('assets/images/games/the-empty-vessel.jpg')" aria-label="The Empty Vessel cover"></a>
+        <h2 class="display game-card__title">The Empty Vessel</h2>
+        <p class="game-card__meta">Shooter</p>
+        <a class="btn btn--block" href="https://dusk-studios.itch.io/the-empty-vessel" target="_blank" rel="noopener">View game</a>
+      </article>
+
+      <article class="game-card">
+        <a class="media game-card__media" href="https://dusk-studios.itch.io/the-lost-legacy" target="_blank" rel="noopener" style="background-image:url('assets/images/games/the-lost-legacy.jpg')" aria-label="The Lost Legacy cover"></a>
+        <h2 class="display game-card__title">The Lost Legacy</h2>
+        <p class="game-card__meta">Platformer</p>
+        <a class="btn btn--block" href="https://dusk-studios.itch.io/the-lost-legacy" target="_blank" rel="noopener">View game</a>
+      </article>
+
+      <article class="game-card">
+        <a class="media game-card__media" href="https://dusk-studios.itch.io/the-crystal-journey" target="_blank" rel="noopener" style="background-image:url('assets/images/games/the-crystal-journey.jpg')" aria-label="The Crystal Journey cover"></a>
+        <h2 class="display game-card__title">The Crystal Journey</h2>
+        <p class="game-card__meta">Platformer · Game jam</p>
+        <a class="btn btn--block" href="https://dusk-studios.itch.io/the-crystal-journey" target="_blank" rel="noopener">View game</a>
+      </article>
+
+      <article class="game-card">
+        <a class="media game-card__media" href="https://dusk-studios.itch.io/mission-earth" target="_blank" rel="noopener" style="background-image:url('assets/images/games/mission-earth.jpg')" aria-label="Mission Earth cover"></a>
+        <h2 class="display game-card__title">Mission Earth</h2>
+        <p class="game-card__meta">Adventure · First game</p>
+        <a class="btn btn--block" href="https://dusk-studios.itch.io/mission-earth" target="_blank" rel="noopener">View game</a>
+      </article>
+
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="wrap site-footer__inner">
+      <span>© <span id="year"></span> Dusk Games Interactive</span>
+      <a href="https://dusk-studios.itch.io/" target="_blank" rel="noopener">dusk-studios.itch.io</a>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

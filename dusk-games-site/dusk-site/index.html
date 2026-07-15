@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dusk Games Interactive</title>
+  <meta name="description" content="Independent game studio building across genres — platformers, horror, shooters, and everything in between." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header">
+    <div class="wrap site-header__inner">
+      <a class="wordmark" href="index.html">Dusk Games Interactive</a>
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <nav class="site-nav">
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="wrap hero__grid">
+      <div>
+        <h1 class="display hero__title">Games built for the <span class="em">last light</span> before dark.</h1>
+        <p class="hero__text">Making games across genres — platformers, horror, shooters, and everything in between. No house style, no single genre. Just games I wanted to make.</p>
+        <a class="btn" href="portfolio.html">Explore my games</a>
+      </div>
+      <!-- Drop your hero image at assets/images/hero.jpg (a dark gradient shows until you do) -->
+      <div class="media hero__media" style="background-image:url('assets/images/hero.jpg')" role="img" aria-label="Studio hero image"></div>
+    </div>
+  </section>
+
+  <!-- ============ STUDIO STORY ============ -->
+  <section class="story">
+    <div class="wrap story__grid">
+      <div class="story__copy">
+        <h2 class="display story__title">One studio, every genre.</h2>
+        <p>Dusk Games Interactive is an independent studio built on range rather than a formula — 2D platformers, 2.5D shooters, atmospheric horror, and adventure titles all live in the same catalog.</p>
+        <p>Some started as weekend game jams, some as first projects, some as full atmospheric builds. What ties them together isn't genre — it's a studio willing to build whatever the idea actually calls for.</p>
+        <a class="btn" href="about.html">Learn more</a>
+        <!-- assets/images/studio-wide.jpg -->
+        <div class="media story__media-wide" style="background-image:url('assets/images/studio-wide.jpg')" role="img" aria-label="Studio work"></div>
+      </div>
+      <!-- assets/images/studio-tall.jpg -->
+      <div class="media story__media-tall" style="background-image:url('assets/images/studio-tall.jpg')" role="img" aria-label="Studio portrait"></div>
+    </div>
+  </section>
+
+  <!-- ============ REEL / VIDEO ============ -->
+  <section class="reel">
+    <div class="wrap">
+      <h2 class="display reel__title">Watch the reel.</h2>
+      <div class="reel__frame">
+        <!-- OPTION A: your own video file. Drop it at assets/videos/reel.mp4 -->
+        <video controls playsinline poster="assets/images/reel-poster.jpg">
+          <source src="assets/videos/reel.mp4" type="video/mp4" />
+          Your browser doesn't support embedded video.
+        </video>
+        <!-- OPTION B: embed a YouTube trailer instead — delete the <video> above and uncomment:
+        <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="Trailer" allowfullscreen></iframe>
+        -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SOCIALS ============ -->
+  <section class="socials">
+    <div class="wrap">
+      <h2 class="display socials__title">The socials.</h2>
+      <div class="social-row">
+        <a href="https://dusk-studios.itch.io/" aria-label="itch.io" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 4.5C2 5.6 1 7.6 1 8.4v.9c0 1.1.9 2 2 2 1 0 1.9-.9 1.9-2 0 1.1.8 2 1.9 2s1.9-.9 1.9-2c0 1.1.9 2 2 2h.4c1.1 0 2-.9 2-2 0 1.1.8 2 1.9 2s1.9-.9 1.9-2c0 1.1.9 2 1.9 2 1.1 0 2-.9 2-2v-.9c0-.8-1-2.8-2-3.9C19.4 4.2 16 4 12 4S4.6 4.2 3 4.5Zm5.9 8.1c-.6.9-1.5 1.5-2.6 1.5l-.2 0v3.8c0 .9.7 1.6 1.6 1.6h8.6c.9 0 1.6-.7 1.6-1.6v-3.8l-.2 0c-1.1 0-2-.6-2.6-1.5-.6.9-1.5 1.5-2.6 1.5s-2-.6-2.5-1.5c-.5.9-1.5 1.5-2.6 1.5Zm2.1 1.9h2c.5 0 .9.7.9 1.2s-1 .8-1.9.8-1.9-.3-1.9-.8.4-1.2.9-1.2Z"/></svg>
+        </a>
+        <a href="#" aria-label="Instagram" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="#" aria-label="X" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.3 8.3L23 22h-6.8l-5-6.5L5.4 22H2.3l7.8-8.9L1.4 2h6.9l4.5 6L18.9 2Zm-1.2 18h1.7L7.1 3.8H5.3L17.7 20Z"/></svg>
+        </a>
+        <a href="#" aria-label="TikTok" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 3c.4 2.1 1.7 3.6 3.8 3.9v2.6c-1.4.1-2.7-.3-3.8-1v5.9c0 3.5-2.6 5.6-5.6 5.6-2.9 0-5.1-2.2-5.1-5 0-2.9 2.3-5 5.4-4.8v2.7c-.4-.1-.8-.2-1.2-.2-1.2 0-2.1.9-2.1 2.2 0 1.3 1 2.2 2.2 2.2 1.3 0 2.4-.9 2.4-2.7V3h4Z"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="wrap site-footer__inner">
+      <span>© <span id="year"></span> Dusk Games Interactive</span>
+      <a href="https://dusk-studios.itch.io/" target="_blank" rel="noopener">dusk-studios.itch.io</a>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

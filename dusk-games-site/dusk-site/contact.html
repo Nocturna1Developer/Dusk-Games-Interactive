@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Dusk Games Interactive</title>
+  <meta name="description" content="Get in touch with Dusk Games Interactive." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header class="site-header on-white">
+    <div class="wrap site-header__inner">
+      <a class="wordmark" href="index.html">Dusk Games Interactive</a>
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <nav class="site-nav">
+        <a href="index.html">Home</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" aria-current="page">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-head">
+    <div class="wrap">
+      <h1 class="display page-head__title">Contact.</h1>
+      <p class="page-head__lede">Questions, collaborations, press, or just want to say hi about a game — send a note.</p>
+    </div>
+  </section>
+
+  <section class="contact">
+    <div class="wrap contact__grid">
+
+      <!-- ============ CONTACT FORM ============
+           GitHub Pages is static, so the form is submitted through Formspree (free).
+           1. Make an account at https://formspree.io
+           2. Create a form and copy its endpoint (looks like https://formspree.io/f/abcdwxyz)
+           3. Paste it into the action="" below.
+           Until then the form won't send. Prefer no form? Delete this block and
+           keep the "Or reach out directly" panel. -->
+      <div>
+        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" required />
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required />
+          </div>
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
+          <button class="btn btn--block" type="submit">Send message</button>
+        </form>
+      </div>
+
+      <!-- ============ DIRECT ============ -->
+      <div class="contact__direct">
+        <p class="page-head__lede" style="margin-top:0">Or reach out directly:</p>
+        <p><a href="mailto:hello@duskgames.example">hello@duskgames.example</a></p>
+        <div class="about__socials" style="margin-top:1.5rem">
+          <h3>Elsewhere</h3>
+          <div class="social-row">
+            <a href="https://dusk-studios.itch.io/" aria-label="itch.io" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 4.5C2 5.6 1 7.6 1 8.4v.9c0 1.1.9 2 2 2 1 0 1.9-.9 1.9-2 0 1.1.8 2 1.9 2s1.9-.9 1.9-2c0 1.1.9 2 2 2h.4c1.1 0 2-.9 2-2 0 1.1.8 2 1.9 2s1.9-.9 1.9-2c0 1.1.9 2 1.9 2 1.1 0 2-.9 2-2v-.9c0-.8-1-2.8-2-3.9C19.4 4.2 16 4 12 4S4.6 4.2 3 4.5Zm5.9 8.1c-.6.9-1.5 1.5-2.6 1.5l-.2 0v3.8c0 .9.7 1.6 1.6 1.6h8.6c.9 0 1.6-.7 1.6-1.6v-3.8l-.2 0c-1.1 0-2-.6-2.6-1.5-.6.9-1.5 1.5-2.6 1.5s-2-.6-2.5-1.5c-.5.9-1.5 1.5-2.6 1.5Zm2.1 1.9h2c.5 0 .9.7.9 1.2s-1 .8-1.9.8-1.9-.3-1.9-.8.4-1.2.9-1.2Z"/></svg>
+            </a>
+            <a href="#" aria-label="Instagram" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+            </a>
+            <a href="#" aria-label="X" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.3 8.3L23 22h-6.8l-5-6.5L5.4 22H2.3l7.8-8.9L1.4 2h6.9l4.5 6L18.9 2Zm-1.2 18h1.7L7.1 3.8H5.3L17.7 20Z"/></svg>
+            </a>
+            <a href="#" aria-label="TikTok" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 3c.4 2.1 1.7 3.6 3.8 3.9v2.6c-1.4.1-2.7-.3-3.8-1v5.9c0 3.5-2.6 5.6-5.6 5.6-2.9 0-5.1-2.2-5.1-5 0-2.9 2.3-5 5.4-4.8v2.7c-.4-.1-.8-.2-1.2-.2-1.2 0-2.1.9-2.1 2.2 0 1.3 1 2.2 2.2 2.2 1.3 0 2.4-.9 2.4-2.7V3h4Z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="wrap site-footer__inner">
+      <span>© <span id="year"></span> Dusk Games Interactive</span>
+      <a href="https://dusk-studios.itch.io/" target="_blank" rel="noopener">dusk-studios.itch.io</a>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
