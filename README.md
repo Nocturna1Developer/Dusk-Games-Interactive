@@ -47,7 +47,10 @@ Each game has an entry like this:
 }
 ```
 
-- **cover** — the picture on the Portfolio card.
+- **cover** — the picture on the Portfolio card. You can leave this `""`: the card
+  then falls back to the first screenshot, and if there's none, to the **YouTube
+  trailer's thumbnail** automatically (hi-res when the video has it). Set `cover`
+  only when you want specific art instead of the trailer thumbnail.
 - **youtube** — the trailer. Paste the normal YouTube link (with `&t=` timestamp
   or `&list=` playlist bits is fine — the site extracts the video for you).
   Leave `""` and the trailer is just skipped.

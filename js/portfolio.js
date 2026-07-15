@@ -14,7 +14,27 @@
     media.className = 'media game-card__media';
     media.href = href;
     media.setAttribute('aria-label', game.title + ' — view');
-    if (coverPath) media.style.backgroundImage = "url('" + assetURL(coverPath) + "')";
+
+    if (coverPath) {
+      // 1) Use your own cover image if set (or the first screenshot).
+      media.style.backgroundImage = "url('" + assetURL(coverPath) + "')";
+    } else {
+      // 2) Otherwise fall back to the YouTube trailer's thumbnail.
+      var id = youtubeId(game.youtube);
+      if (id) {
+        // Start with a clean thumbnail that always exists...
+        media.style.backgroundImage = "url('https://img.youtube.com/vi/" + id + "/mqdefault.jpg')";
+        // ...then upgrade to the crisp hi-res one if the video has it.
+        var hi = new Image();
+        hi.onload = function () {
+          if (hi.naturalWidth > 120) {  // 120 = YouTube's "not available" placeholder
+            media.style.backgroundImage = "url('https://img.youtube.com/vi/" + id + "/maxresdefault.jpg')";
+          }
+        };
+        hi.src = "https://img.youtube.com/vi/" + id + "/maxresdefault.jpg";
+      }
+      // 3) If there's no cover and no trailer, the dark placeholder shows.
+    }
 
     var title = document.createElement('h2');
     title.className = 'display game-card__title';

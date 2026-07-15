@@ -5,27 +5,30 @@ function assetURL(path) {
   return path.split("/").map(encodeURIComponent).join("/");
 }
 
-// Turn any YouTube link into an embeddable URL.
-// Accepts full watch URLs (with &t= start time or &list=), youtu.be links,
-// already-embed URLs, or a bare video ID. Returns "" if nothing usable.
-function youtubeEmbed(url) {
+// Pull the video ID out of any YouTube link (watch URL, youtu.be, embed,
+// or a bare ID). Returns "" if none.
+function youtubeId(url) {
   if (!url) return "";
-  var id = "", start = 0;
   try {
     var u = new URL(url);
-    if (u.hostname.indexOf("youtu.be") !== -1) {
-      id = u.pathname.slice(1);
-    } else if (u.pathname.indexOf("/embed/") === 0) {
-      id = u.pathname.split("/embed/")[1];
-    } else {
-      id = u.searchParams.get("v") || "";
-    }
+    if (u.hostname.indexOf("youtu.be") !== -1) return u.pathname.slice(1);
+    if (u.pathname.indexOf("/embed/") === 0) return u.pathname.split("/embed/")[1];
+    return u.searchParams.get("v") || "";
+  } catch (e) {
+    return url;  // assume a bare video ID was pasted
+  }
+}
+
+// Build an embeddable URL, preserving a &t= / start time if present.
+function youtubeEmbed(url) {
+  var id = youtubeId(url);
+  if (!id) return "";
+  var start = 0;
+  try {
+    var u = new URL(url);
     var t = u.searchParams.get("t") || u.searchParams.get("start");
     if (t) start = parseInt(t, 10) || 0;   // handles "207" and "207s"
-  } catch (e) {
-    id = url;                               // assume a bare video ID was pasted
-  }
-  if (!id) return "";
+  } catch (e) {}
   return "https://www.youtube.com/embed/" + id + (start ? "?start=" + start : "");
 }
 
