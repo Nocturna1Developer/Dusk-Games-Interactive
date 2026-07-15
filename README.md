@@ -38,7 +38,7 @@ Each game has an entry like this:
   itch: "https://dusk-studios.itch.io/slime-venture",
   description: "",                                    // optional
   cover:   "assets/images/games/slime-venture/Final Thumbnail 2.PNG",
-  trailer: "assets/videos/slime-venture/SlimeVenture! Trailer.mp4",  // "" if none
+  youtube: "https://www.youtube.com/watch?v=r5-DEYGfWAA",   // "" if none
   screenshots: [
     "assets/images/games/slime-venture/Level 1 Screenshot 2.PNG",
     "assets/images/games/slime-venture/Level 2 Screenshot 2.PNG",
@@ -47,8 +47,10 @@ Each game has an entry like this:
 }
 ```
 
-- **cover** — the picture on the Portfolio card (and the trailer's thumbnail).
-- **trailer** — a video file; leave `""` and it's just skipped.
+- **cover** — the picture on the Portfolio card.
+- **youtube** — the trailer. Paste the normal YouTube link (with `&t=` timestamp
+  or `&list=` playlist bits is fine — the site extracts the video for you).
+  Leave `""` and the trailer is just skipped.
 - **screenshots** — every image here shows in the gallery; click one for full-size.
 
 Slime Venture is already filled in as a working example. Do the same for the rest.
@@ -66,10 +68,9 @@ Tip: to avoid the whole issue, you can rename files to lowercase with no spaces
 
 ## Change the home-page trailer
 
-The reel on `index.html` points at the Slime Venture trailer. To feature a
-different one, edit the `poster=` and `<source src=` paths in the reel block
-(spaces written as `%20`). Or swap in a YouTube embed — the commented `<iframe>`
-line is right there.
+The reel on `index.html` is a YouTube embed of the Slime Venture trailer. To
+feature a different video, change the ID at the end of the embed URL (the part
+after `/embed/`) in the reel block.
 
 ## Home & About images (per-page folders)
 

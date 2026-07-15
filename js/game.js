@@ -22,12 +22,12 @@
   html += '<p class="eyebrow">' + esc(game.genre || '') + '</p>';
   html += '<h1 class="display game-detail__title">' + esc(game.title) + '</h1>';
 
-  if (game.trailer) {
+  var embed = youtubeEmbed(game.youtube);
+  if (embed) {
     html += '<div class="video-frame">' +
-              '<video controls playsinline ' +
-              (game.cover ? 'poster="' + assetURL(game.cover) + '" ' : '') + '>' +
-                '<source src="' + assetURL(game.trailer) + '" type="video/mp4" />' +
-              '</video>' +
+              '<iframe src="' + embed + '" title="' + esc(game.title) + ' trailer" ' +
+              'allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" ' +
+              'allowfullscreen loading="lazy"></iframe>' +
             '</div>';
   }
 

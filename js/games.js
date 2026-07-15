@@ -10,17 +10,15 @@
      itch        link to the game's itch.io page
      description (optional) a sentence or two shown on the game page
      cover       the image used on the Portfolio card
-     trailer     (optional) a video file — leave "" if none yet
+     youtube     the trailer — just paste the YouTube link (the normal
+                 "watch?v=..." URL is fine, timestamps and playlists and
+                 all). Leave "" for no trailer.
      screenshots list of image files shown in the gallery
 
-   PATHS: type the file path exactly as it is on disk, INCLUDING
-   spaces and capital letters. GitHub Pages is case-sensitive, so
-   "Level 2.PNG" and "level 2.png" are different files there. The
-   code handles the spaces for you. Leaving cover/screenshots empty
-   just shows a dark placeholder until you fill them in.
-
-   Slime Venture below is filled in as a working example — copy its
-   shape for the others.
+   IMAGE PATHS: type the file path exactly as it is on disk, INCLUDING
+   spaces and capital letters — GitHub Pages is case-sensitive. Leaving
+   cover/screenshots empty just shows a dark placeholder until you fill
+   them in.
    ========================================================= */
 
 const GAMES = [
@@ -31,7 +29,7 @@ const GAMES = [
     itch: "https://dusk-studios.itch.io/slime-venture",
     description: "",
     cover: "assets/images/games/slime-venture/Final Thumbnail 2.PNG",
-    trailer: "assets/videos/slime-venture/SlimeVenture! Trailer.mp4",
+    youtube: "https://www.youtube.com/watch?v=r5-DEYGfWAA",
     screenshots: [
       "assets/images/games/slime-venture/Level 1 Screenshot 2.PNG",
       "assets/images/games/slime-venture/Level 2 Screenshot 2.PNG",
@@ -46,12 +44,9 @@ const GAMES = [
     genre: "Survival horror",
     itch: "https://dusk-studios.itch.io/the-dissapearance",
     description: "",
-    cover: "",                            // e.g. assets/images/games/the-dissapearance/thumbnail.png
-    trailer: "",                          // e.g. assets/videos/the-dissapearance/trailer.mp4
-    screenshots: [
-      // "assets/images/games/the-dissapearance/screenshot 1.png",
-      // "assets/images/games/the-dissapearance/screenshot 2.png"
-    ]
+    cover: "",
+    youtube: "https://www.youtube.com/watch?v=OprsYiEykEE&t=207s",
+    screenshots: []
   },
 
   {
@@ -61,7 +56,7 @@ const GAMES = [
     itch: "https://dusk-studios.itch.io/the-ruins-of-ishgar",
     description: "",
     cover: "",
-    trailer: "",
+    youtube: "https://www.youtube.com/watch?v=kP7kunFiuAQ&list=PLs_4rBValRlRsv5RgWV-eRb6QP06JnjH5&index=9",
     screenshots: []
   },
 
@@ -72,7 +67,7 @@ const GAMES = [
     itch: "https://dusk-studios.itch.io/the-empty-vessel",
     description: "",
     cover: "",
-    trailer: "",
+    youtube: "https://www.youtube.com/watch?v=i-WyRDsDctM&t=266s",
     screenshots: []
   },
 
@@ -83,7 +78,7 @@ const GAMES = [
     itch: "https://dusk-studios.itch.io/the-lost-legacy",
     description: "",
     cover: "",
-    trailer: "",
+    youtube: "https://www.youtube.com/watch?v=-L7wtfTd2Qw&list=PLs_4rBValRlRsv5RgWV-eRb6QP06JnjH5&index=10",
     screenshots: []
   },
 
@@ -94,7 +89,7 @@ const GAMES = [
     itch: "https://dusk-studios.itch.io/the-crystal-journey",
     description: "",
     cover: "",
-    trailer: "",
+    youtube: "https://www.youtube.com/watch?v=d_Re1ZdoClc&list=PLs_4rBValRlRsv5RgWV-eRb6QP06JnjH5&index=5",
     screenshots: []
   },
 
@@ -105,7 +100,7 @@ const GAMES = [
     itch: "https://dusk-studios.itch.io/mission-earth",
     description: "",
     cover: "",
-    trailer: "",
+    youtube: "https://www.youtube.com/watch?v=bpe2EWl9Zog&list=PLs_4rBValRlRsv5RgWV-eRb6QP06JnjH5&index=8",
     screenshots: []
   }
 ];
