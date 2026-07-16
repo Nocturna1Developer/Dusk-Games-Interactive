@@ -15,13 +15,16 @@
 </head>
 <body>
 
-  <header class="site-header on-white">
+  <header class="site-header">
     <div class="wrap site-header__inner">
-      <a class="wordmark" href="index.html">Dusk Games Interactive</a>
+      <a class="site-logo" href="index.html" aria-label="Dusk Games Interactive — home">
+        <img src="assets/images/logo.png" alt="Dusk Games Interactive" />
+      </a>
       <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
       <nav class="site-nav">
         <a href="index.html">Home</a>
         <a href="portfolio.html" aria-current="page">Portfolio</a>
+        <a href="blog.html">Blog</a>
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
       </nav>
@@ -41,9 +44,41 @@
   </section>
 
   <footer class="site-footer">
-    <div class="wrap site-footer__inner">
-      <span>&copy; <span id="year"></span> Dusk Games Interactive</span>
-      <a href="https://dusk-studios.itch.io/" target="_blank" rel="noopener">dusk-studios.itch.io</a>
+    <div class="wrap site-footer__top">
+      <div class="footer-brand">
+        <a class="footer-logo" href="index.html" aria-label="Dusk Games Interactive — home">
+          <img src="assets/images/logo.png" alt="Dusk Games Interactive" />
+        </a>
+        <p class="footer-tagline">Independent game studio — games built for the last light before dark.</p>
+        <div class="social-row">
+          <a href="https://www.youtube.com/channel/UCMtXnmMAZY_C6TXKdPQK51w/" aria-label="YouTube" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 12s0-3.3-.4-4.8a2.5 2.5 0 0 0-1.8-1.8C19.3 5 12 5 12 5s-7.3 0-8.8.4A2.5 2.5 0 0 0 1.4 7.2C1 8.7 1 12 1 12s0 3.3.4 4.8a2.5 2.5 0 0 0 1.8 1.8C4.7 19 12 19 12 19s7.3 0 8.8-.4a2.5 2.5 0 0 0 1.8-1.8C23 15.3 23 12 23 12Zm-13 3V9l5 3-5 3Z"/></svg></a>
+          <a href="https://www.tiktok.com/@duskgamesinteractive" aria-label="TikTok" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 3c.4 2.1 1.7 3.6 3.8 3.9v2.6c-1.4.1-2.7-.3-3.8-1v5.9c0 3.5-2.6 5.6-5.6 5.6-2.9 0-5.1-2.2-5.1-5 0-2.9 2.3-5 5.4-4.8v2.7c-.4-.1-.8-.2-1.2-.2-1.2 0-2.1.9-2.1 2.2 0 1.3 1 2.2 2.2 2.2 1.3 0 2.4-.9 2.4-2.7V3h4Z"/></svg></a>
+          <a href="https://www.instagram.com/duskgames_/" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="https://x.com/duskgames_" aria-label="X" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.3 8.3L23 22h-6.8l-5-6.5L5.4 22H2.3l7.8-8.9L1.4 2h6.9l4.5 6L18.9 2Zm-1.2 18h1.7L7.1 3.8H5.3L17.7 20Z"/></svg></a>
+          <a href="https://dusk-studios.itch.io/" aria-label="itch.io" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 4.5C2 5.6 1 7.6 1 8.4v.9c0 1.1.9 2 2 2 1 0 1.9-.9 1.9-2 0 1.1.8 2 1.9 2s1.9-.9 1.9-2c0 1.1.9 2 2 2h.4c1.1 0 2-.9 2-2 0 1.1.8 2 1.9 2s1.9-.9 1.9-2c0 1.1.9 2 1.9 2 1.1 0 2-.9 2-2v-.9c0-.8-1-2.8-2-3.9C19.4 4.2 16 4 12 4S4.6 4.2 3 4.5Zm5.9 8.1c-.6.9-1.5 1.5-2.6 1.5l-.2 0v3.8c0 .9.7 1.6 1.6 1.6h8.6c.9 0 1.6-.7 1.6-1.6v-3.8l-.2 0c-1.1 0-2-.6-2.6-1.5-.6.9-1.5 1.5-2.6 1.5s-2-.6-2.5-1.5c-.5.9-1.5 1.5-2.6 1.5Zm2.1 1.9h2c.5 0 .9.7.9 1.2s-1 .8-1.9.8-1.9-.3-1.9-.8.4-1.2.9-1.2Z"/></svg></a>
+        </div>
+      </div>
+
+      <nav class="footer-col" aria-label="Explore">
+        <h3>Explore</h3>
+        <a href="index.html">Home</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <nav class="footer-col" aria-label="Studio">
+        <h3>Studio</h3>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="https://dusk-studios.itch.io/" target="_blank" rel="noopener">itch.io</a>
+        <a href="mailto:duskgamesinteractive@gmail.com">Email us</a>
+      </nav>
+    </div>
+
+    <div class="wrap site-footer__bottom">
+      <span>&copy; <span id="year"></span> Dusk Games Interactive. All rights reserved.</span>
+      <a class="footer-privacy" href="privacy.html">Privacy Policy</a>
     </div>
   </footer>
 
