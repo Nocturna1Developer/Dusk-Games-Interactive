@@ -96,7 +96,7 @@ a { color: inherit; }
   padding-block: 1.5rem 1.15rem;
 }
 .site-logo { display: inline-flex; line-height: 0; }
-.site-logo img { height: clamp(54px, 6vw, 78px); width: auto; display: block; border-radius: 14px; box-shadow: 0 2px 16px rgba(0,0,0,.25); }
+.site-logo img { height: clamp(56px, 6.5vw, 84px); width: auto; display: block; }
 .site-nav { display: flex; gap: clamp(1.2rem, 3vw, 2.8rem); }
 .site-nav a {
   text-decoration: none;
@@ -281,7 +281,7 @@ a { color: inherit; }
 }
 .footer-brand { max-width: 36ch; }
 .footer-logo { line-height: 0; display: inline-block; }
-.footer-logo img { height: 54px; width: auto; border-radius: 12px; }
+.footer-logo img { height: 58px; width: auto; }
 .footer-tagline { color: rgba(255,255,255,.55); font-size: .92rem; margin: 1rem 0 1.3rem; }
 .footer-brand .social-row { display: inline-flex; }
 .footer-col h3 {
