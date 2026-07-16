@@ -54,7 +54,7 @@ const GAMES = [
     itch: "",
     description: "Drop in empty handed. Grab whatever weapon you can find. Blow apart the aerna. Be the last player standing.",
     cover: "",
-    youtube: "https://www.youtube.com/watch?v=0ewM_gvnB1w",
+    youtube: "",
     screenshots: []
   },
 
@@ -65,8 +65,13 @@ const GAMES = [
     itch: "",
     description: "Frank wakes from the grave with fragmented memories, recalling only his mission—to save his daughter",
     cover: "",
-    youtube: "https://www.youtube.com/watch?v=0ewM_gvnB1w",
-    screenshots: []
+    youtube: "https://www.youtube.com/watch?v=whq4SqSkBkk&t=275s",
+    screenshots: [
+      "assets/images/games/project-sosei/Screenshot 2026-07-15 185517.png",
+      "assets/images/games/project-sosei/Screenshot 2026-07-15 185631.png",
+      "assets/images/games/project-sosei/Screenshot 2026-07-15 190013.png",
+      "assets/images/games/project-sosei/Screenshot 2026-07-15 190043.png"
+    ]
   },
 
   {
@@ -93,7 +98,17 @@ const GAMES = [
     description: "",
     cover: "",
     youtube: "https://www.youtube.com/watch?v=OprsYiEykEE&t=207s",
-    screenshots: []
+    screenshots: [
+      "assets/images/games/the-dissapearance/0pMBQ5.png",
+      "assets/images/games/the-dissapearance/axpfhf.png",
+      "assets/images/games/the-dissapearance/Credits.PNG",
+      "assets/images/games/the-dissapearance/lzjeKs.png",
+      "assets/images/games/the-dissapearance/mfm3sz.png",
+      "assets/images/games/the-dissapearance/qkPPVk.png",
+      "assets/images/games/the-dissapearance/RN4Vaq.png",
+      "assets/images/games/the-dissapearance/yoitoL.png",
+      "assets/images/games/the-dissapearance/Yr3Ynm.png"
+    ]
   },
 
   {
@@ -104,7 +119,12 @@ const GAMES = [
     description: "A 2.5D game where you control a rocket and maneuver through obstacles!",
     cover: "",
     youtube: "https://www.youtube.com/watch?v=kP7kunFiuAQ&list=PLs_4rBValRlRsv5RgWV-eRb6QP06JnjH5&index=9",
-    screenshots: []
+    screenshots: [
+      "assets/images/games/the-ruins-of-ishgar/Hkn6iV.png",
+      "assets/images/games/the-ruins-of-ishgar/R7VnwK.png",
+      "assets/images/games/the-ruins-of-ishgar/RNqQMd.png",
+      "assets/images/games/the-ruins-of-ishgar/x7Dtp3.png"
+    ]
   },
 
   {
@@ -115,7 +135,14 @@ const GAMES = [
     description: "A story-driven atmospheric zombie shooter.",
     cover: "",
     youtube: "https://www.youtube.com/watch?v=i-WyRDsDctM&t=266s",
-    screenshots: []
+    screenshots: [
+      "assets/images/games/the-empty-vessel/CvfjsR.png",
+      "assets/images/games/the-empty-vessel/GjcUZd.png",
+      "assets/images/games/the-empty-vessel/M28ryN (1).png",
+      "assets/images/games/the-empty-vessel/M28ryN.png",
+      "assets/images/games/the-empty-vessel/pVbJh2.png",
+      "assets/images/games/the-empty-vessel/x+XNfg.png"
+    ]
   },
 
   {
@@ -126,7 +153,13 @@ const GAMES = [
     description: "Dash! Double Jump! Slash! Collect! in this fast-paced 2D platformer!",
     cover: "",
     youtube: "https://www.youtube.com/watch?v=-L7wtfTd2Qw&list=PLs_4rBValRlRsv5RgWV-eRb6QP06JnjH5&index=10",
-    screenshots: []
+    screenshots: [
+      "assets/images/games/the-lost-legacy/9+d5Bc (1).png",
+      "assets/images/games/the-lost-legacy/Hm8QJb (1).png",
+      "assets/images/games/the-lost-legacy/QjyL5J (1).png",
+      "assets/images/games/the-lost-legacy/tfEd2I (1).png",
+      "assets/images/games/the-lost-legacy/TLrP6U (1).png"
+    ]
   },
 
   {
@@ -137,7 +170,12 @@ const GAMES = [
     description: "A short and very fast paced 2D retro-action platformer.",
     cover: "",
     youtube: "https://www.youtube.com/watch?v=d_Re1ZdoClc&list=PLs_4rBValRlRsv5RgWV-eRb6QP06JnjH5&index=5",
-    screenshots: []
+    screenshots: [
+      "assets/images/games/the-crystal-journey/9Bj4CK.png",
+      "assets/images/games/the-crystal-journey/Ae+uHJ.png",
+      "assets/images/games/the-crystal-journey/k7e1bA.png",
+      "assets/images/games/the-crystal-journey/thgFNl.png"
+    ]
   },
 
   {
@@ -148,6 +186,12 @@ const GAMES = [
     description: "The aim is to maneuver an alien rocket ship by rotating and thrusting, as it flies through 3-D obstacles.",
     cover: "",
     youtube: "https://www.youtube.com/watch?v=bpe2EWl9Zog&list=PLs_4rBValRlRsv5RgWV-eRb6QP06JnjH5&index=8",
-    screenshots: []
+    screenshots: [
+      "assets/images/games/mission-earth/Screenshot 2026-07-15 153759.png",
+      "assets/images/games/mission-earth/Screenshot 2026-07-15 153851.png",
+      "assets/images/games/mission-earth/Screenshot 2026-07-15 155612.png",
+      "assets/images/games/mission-earth/Screenshot 2026-07-15 155908.png",
+      "assets/images/games/mission-earth/Screenshot 2026-07-15 155949.png"
+    ]
   }
 ];
