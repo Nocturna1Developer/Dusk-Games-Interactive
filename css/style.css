@@ -4,14 +4,16 @@
    ========================================================= */
 
 :root {
-  --bg:        #ffffff;   /* main page background            */
-  --bg-alt:    #e6e4e1;   /* warm gray band (hero, panels)   */
-  --ink:       #141312;   /* near-black text                 */
-  --muted:     #4c4a47;   /* secondary body text             */
-  --accent:    #c5541f;   /* burnt orange emphasis           */
-  --line:      rgba(20,19,18,.14);
-  --pill-bg:   #141312;   /* black buttons                   */
+  --bg:        #faf9fc;   /* near-white, faint lavender      */
+  --bg-alt:    #ece7f2;   /* soft dusk-lavender band          */
+  --ink:       #262034;   /* deep plum text                   */
+  --muted:     #6d6480;   /* muted mauve-gray                 */
+  --accent:    #bf8f2e;   /* dusk gold emphasis               */
+  --line:      rgba(46,36,80,.14);
+  --pill-bg:   #2e2450;   /* dusk-purple buttons              */
   --pill-fg:   #ffffff;
+  --dusk:      #33294f;   /* header / footer surface          */
+  --gold-soft: #f0dca8;   /* cream-gold on dark surfaces      */
 
   --wrap:      1180px;    /* max content width               */
   --gutter:    clamp(20px, 5vw, 72px);
@@ -85,42 +87,38 @@ a { color: inherit; }
    ========================================================= */
 .site-header {
   position: sticky; top: 0; z-index: 40;
-  background: var(--bg-alt);
-  border-bottom: 1px solid transparent;
+  background: var(--dusk);
+  border-bottom: 1px solid rgba(255,255,255,.08);
 }
-.site-header.on-white { background: var(--bg); }
+.site-header.on-white { background: var(--dusk); }
 .site-header__inner {
-  display: flex; align-items: center; justify-content: space-between;
-  gap: 1.5rem;
-  padding-block: 1.4rem;
+  position: relative;
+  display: flex; flex-direction: column; align-items: center;
+  gap: 1rem;
+  padding-block: 1.5rem 1.15rem;
 }
-.wordmark {
-  font-family: var(--font-display);
-  text-transform: uppercase;
-  letter-spacing: .04em;
-  font-size: clamp(1rem, 1.6vw, 1.35rem);
-  text-decoration: none;
-  color: var(--ink);
-  white-space: nowrap;
-}
-.site-nav { display: flex; gap: clamp(1.1rem, 2.4vw, 2.6rem); }
+.site-logo { display: inline-flex; line-height: 0; }
+.site-logo img { height: clamp(54px, 6vw, 78px); width: auto; display: block; border-radius: 14px; box-shadow: 0 2px 16px rgba(0,0,0,.25); }
+.site-nav { display: flex; gap: clamp(1.2rem, 3vw, 2.8rem); }
 .site-nav a {
   text-decoration: none;
-  color: var(--ink);
-  font-size: .95rem;
+  color: rgba(255,255,255,.82);
+  font-size: .8rem; font-weight: 600;
+  letter-spacing: .14em; text-transform: uppercase;
   padding-bottom: 3px;
   border-bottom: 2px solid transparent;
-  transition: border-color .18s ease;
+  transition: color .18s ease, border-color .18s ease;
 }
-.site-nav a:hover { border-color: var(--ink); }
-.site-nav a[aria-current="page"] { border-color: var(--ink); }
+.site-nav a:hover { color: var(--gold-soft); border-color: var(--gold-soft); }
+.site-nav a[aria-current="page"] { color: var(--gold-soft); border-color: var(--gold-soft); }
 
 .nav-toggle {
   display: none;
+  position: absolute; right: var(--gutter); top: 1.55rem;
   flex-direction: column; gap: 5px;
   background: none; border: 0; cursor: pointer; padding: 6px;
 }
-.nav-toggle span { width: 26px; height: 2px; background: var(--ink); transition: .2s; }
+.nav-toggle span { width: 26px; height: 2px; background: #fff; transition: .2s; }
 
 /* =========================================================
    HERO (home)
@@ -271,17 +269,37 @@ a { color: inherit; }
    FOOTER
    ========================================================= */
 .site-footer {
-  border-top: 1px solid var(--line);
-  padding-block: 2.4rem;
-  margin-top: clamp(2rem, 6vw, 4rem);
+  background: var(--dusk);
+  color: rgba(255,255,255,.6);
+  border-top: 1px solid rgba(255,255,255,.08);
+  padding-block: clamp(2.6rem, 6vw, 4rem);
+  margin-top: clamp(2.5rem, 7vw, 5rem);
 }
 .site-footer__inner {
-  display: flex; flex-wrap: wrap; gap: 1rem;
-  align-items: center; justify-content: space-between;
-  font-size: .85rem; color: var(--muted);
+  display: flex; flex-direction: column; align-items: center;
+  gap: 1.5rem; text-align: center;
 }
-.site-footer a { color: var(--muted); text-decoration: none; }
-.site-footer a:hover { color: var(--ink); }
+.footer-logo { line-height: 0; }
+.footer-logo img { height: 50px; width: auto; border-radius: 11px; }
+.footer-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem 2rem; }
+.footer-nav a {
+  color: rgba(255,255,255,.75); text-decoration: none;
+  font-size: .74rem; letter-spacing: .16em; text-transform: uppercase;
+  transition: color .18s ease;
+}
+.footer-nav a:hover { color: var(--gold-soft); }
+.site-footer .social-row a { color: #fff; border-color: rgba(255,255,255,.22); }
+.site-footer .social-row a:hover { background: var(--gold-soft); color: var(--dusk); border-color: var(--gold-soft); }
+.footer-legal {
+  display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
+  gap: .4rem .9rem;
+  width: 100%; max-width: 760px;
+  padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,.08);
+  font-size: .72rem; letter-spacing: .05em; color: rgba(255,255,255,.45);
+}
+.footer-legal a { color: rgba(255,255,255,.62); text-decoration: none; }
+.footer-legal a:hover { color: var(--gold-soft); }
+.footer-legal .sep { opacity: .4; }
 
 /* =========================================================
    RESPONSIVE
@@ -291,14 +309,14 @@ a { color: inherit; }
   .site-nav {
     position: absolute; left: 0; right: 0; top: 100%;
     flex-direction: column; gap: 0;
-    background: var(--bg);
-    border-bottom: 1px solid var(--line);
+    background: var(--dusk);
+    border-bottom: 1px solid rgba(255,255,255,.1);
     padding: 0 var(--gutter);
     max-height: 0; overflow: hidden;
     transition: max-height .28s ease, padding .28s ease;
   }
-  .site-nav.open { max-height: 320px; padding-block: .5rem 1.2rem; }
-  .site-nav a { padding: .9rem 0; border-bottom: 1px solid var(--line); }
+  .site-nav.open { max-height: 360px; padding-block: .4rem 1.1rem; }
+  .site-nav a { padding: .9rem 0; border-bottom: 1px solid rgba(255,255,255,.08); width: 100%; text-align: center; }
   .site-nav a:last-child { border-bottom: 0; }
 
   .hero__grid,
@@ -390,7 +408,7 @@ a { color: inherit; }
   display: flex;
   align-items: center;
   /* still image shown before the video loads / if autoplay is blocked */
-  background: #1a1613 url('../assets/images/home-page/hero.png') center / cover no-repeat;
+  background: #1c1630 url('../assets/images/home-page/hero.png') center / cover no-repeat;
 }
 .hero__video { position: absolute; inset: 0; z-index: 0; }
 .hero__video iframe {
@@ -403,14 +421,14 @@ a { color: inherit; }
 .hero__scrim {
   position: absolute; inset: 0; z-index: 1;
   background:
-    linear-gradient(90deg, rgba(15,12,10,.82) 0%, rgba(15,12,10,.55) 42%, rgba(15,12,10,.15) 72%, rgba(15,12,10,0) 100%),
-    linear-gradient(0deg, rgba(15,12,10,.35), rgba(15,12,10,.12));
+    linear-gradient(90deg, rgba(22,15,38,.82) 0%, rgba(22,15,38,.55) 42%, rgba(22,15,38,.15) 72%, rgba(22,15,38,0) 100%),
+    linear-gradient(0deg, rgba(22,15,38,.35), rgba(22,15,38,.12));
 }
 .hero__content { position: relative; z-index: 2; padding-block: clamp(3rem, 8vw, 6rem); }
 .hero--video .hero__title { color: #fff; max-width: 15ch; }
-.hero--video .hero__title .em { color: #e8763f; }   /* brighter orange for video */
+.hero--video .hero__title .em { color: var(--gold-soft); }   /* cream-gold for video */
 .hero--video .hero__text { color: rgba(255,255,255,.86); max-width: 44ch; margin: 1.8rem 0 2.4rem; }
-.hero--video .btn { background: #fff; color: #141312; border-color: #fff; }
+.hero--video .btn { background: #fff; color: var(--dusk); border-color: #fff; }
 .hero--video .btn:hover { background: transparent; color: #fff; border-color: #fff; }
 
 @media (prefers-reduced-motion: reduce) {
@@ -419,3 +437,17 @@ a { color: inherit; }
 @media (max-width: 860px) {
   .hero--video { min-height: 70vh; }
 }
+
+
+/* =========================================================
+   LEGAL / PRIVACY PAGES
+   ========================================================= */
+.legal { padding-bottom: clamp(3rem, 8vw, 6rem); }
+.legal__body { max-width: 720px; }
+.legal__body p { color: var(--muted); margin: 0 0 1.2rem; }
+.legal__body h2 {
+  font-family: var(--font-display); text-transform: uppercase; letter-spacing: .03em;
+  font-size: 1.4rem; margin: 2rem 0 .6rem; color: var(--ink);
+}
+.legal__body a { color: var(--accent); text-decoration: none; }
+.legal__body a:hover { text-decoration: underline; }
