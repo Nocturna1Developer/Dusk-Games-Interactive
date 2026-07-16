@@ -47,6 +47,28 @@
    ---------------------------------------------------------- */
 
 const GAMES = [
+    {
+    slug: "rubble-rumble",
+    title: "Rubble Rumble",
+    genre: "RELEASE DATE TBA · Top Down · Multiplayer · Destruction",
+    itch: "",
+    description: "Drop in empty handed. Grab whatever weapon you can find. Blow apart the aerna. Be the last player standing.",
+    cover: "",
+    youtube: "https://www.youtube.com/watch?v=0ewM_gvnB1w",
+    screenshots: []
+  },
+
+  {
+    slug: "project-sosei",
+    title: "Project Sosei",
+    genre: "RELEASE DATE TBA · Shooter · Story",
+    itch: "",
+    description: "Frank wakes from the grave with fragmented memories, recalling only his mission—to save his daughter",
+    cover: "",
+    youtube: "https://www.youtube.com/watch?v=0ewM_gvnB1w",
+    screenshots: []
+  },
+
   {
     slug: "slime-venture",
     title: "Slime Venture",
@@ -126,17 +148,6 @@ const GAMES = [
     description: "The aim is to maneuver an alien rocket ship by rotating and thrusting, as it flies through 3-D obstacles.",
     cover: "",
     youtube: "https://www.youtube.com/watch?v=bpe2EWl9Zog&list=PLs_4rBValRlRsv5RgWV-eRb6QP06JnjH5&index=8",
-    screenshots: []
-  },
-
-  {
-    slug: "project-sosei",
-    title: "Project Sosei",
-    genre: "Shooter · Story",
-    itch: "",
-    description: "Frank wakes from the grave with fragmented memories, recalling only his mission—to save his daughter",
-    cover: "",
-    youtube: "https://www.youtube.com/watch?v=0ewM_gvnB1w",
     screenshots: []
   }
 ];
