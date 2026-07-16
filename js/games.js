@@ -9,7 +9,11 @@
      genre       small label under the title
      itch        link to the game's itch.io page
      description (optional) a sentence or two shown on the game page
-     cover       the image used on the Portfolio card
+     cover       (optional) a specific image for the Portfolio card. LEAVE
+                 THIS "" and the card automatically uses a file named
+                 "_thumbnail.png" inside that game's folder
+                 (assets/images/games/<slug>/). Only set cover to override
+                 that with a different file.
      youtube     the trailer — just paste the YouTube link (the normal
                  "watch?v=..." URL is fine, timestamps and playlists and
                  all). Leave "" for no trailer.
@@ -21,14 +25,35 @@
    them in.
    ========================================================= */
 
+/* ----------------------------------------------------------
+   ADDING A NEW GAME
+   1. Make its folder under assets/images/games/<slug>/ (you did this).
+   2. Put a "_thumbnail.png" in that folder for the card image.
+   3. Copy this block into the list below and fill in what you have
+      (everything except slug + title is optional):
+
+        {
+          slug: "your-folder-name",     // must match the folder exactly
+          title: "Your Game Title",
+          genre: "",                     // optional
+          itch: "",                      // optional link
+          description: "",               // optional
+          cover: "",                     // optional — leave "" to use _thumbnail.png
+          youtube: "",                   // optional trailer link
+          screenshots: []                // optional gallery images
+        },
+
+   The card and page appear automatically once the entry is in this list.
+   ---------------------------------------------------------- */
+
 const GAMES = [
   {
     slug: "slime-venture",
     title: "Slime Venture",
     genre: "2.5D shooter",
     itch: "https://dusk-studios.itch.io/slime-venture",
-    description: "",
-    cover: "assets/images/games/slime-venture/Final Thumbnail 2.PNG",
+    description: "A fast-paced, 2.5D experience where you play as a smol slime with a grappling hook/revolver!",
+    cover: "",
     youtube: "https://www.youtube.com/watch?v=r5-DEYGfWAA",
     screenshots: [
       "assets/images/games/slime-venture/Level 1 Screenshot 2.PNG",
@@ -54,7 +79,7 @@ const GAMES = [
     title: "The Ruins of Ishgar",
     genre: "Adventure",
     itch: "https://dusk-studios.itch.io/the-ruins-of-ishgar",
-    description: "",
+    description: "A 2.5D game where you control a rocket and maneuver through obstacles!",
     cover: "",
     youtube: "https://www.youtube.com/watch?v=kP7kunFiuAQ&list=PLs_4rBValRlRsv5RgWV-eRb6QP06JnjH5&index=9",
     screenshots: []
@@ -65,7 +90,7 @@ const GAMES = [
     title: "The Empty Vessel",
     genre: "Shooter",
     itch: "https://dusk-studios.itch.io/the-empty-vessel",
-    description: "",
+    description: "A story-driven atmospheric zombie shooter.",
     cover: "",
     youtube: "https://www.youtube.com/watch?v=i-WyRDsDctM&t=266s",
     screenshots: []
@@ -76,7 +101,7 @@ const GAMES = [
     title: "The Lost Legacy",
     genre: "Platformer",
     itch: "https://dusk-studios.itch.io/the-lost-legacy",
-    description: "",
+    description: "Dash! Double Jump! Slash! Collect! in this fast-paced 2D platformer!",
     cover: "",
     youtube: "https://www.youtube.com/watch?v=-L7wtfTd2Qw&list=PLs_4rBValRlRsv5RgWV-eRb6QP06JnjH5&index=10",
     screenshots: []
@@ -87,7 +112,7 @@ const GAMES = [
     title: "The Crystal Journey",
     genre: "Platformer · Game jam",
     itch: "https://dusk-studios.itch.io/the-crystal-journey",
-    description: "",
+    description: "A short and very fast paced 2D retro-action platformer.",
     cover: "",
     youtube: "https://www.youtube.com/watch?v=d_Re1ZdoClc&list=PLs_4rBValRlRsv5RgWV-eRb6QP06JnjH5&index=5",
     screenshots: []
@@ -98,9 +123,20 @@ const GAMES = [
     title: "Mission Earth",
     genre: "Adventure · First game",
     itch: "https://dusk-studios.itch.io/mission-earth",
-    description: "",
+    description: "The aim is to maneuver an alien rocket ship by rotating and thrusting, as it flies through 3-D obstacles.",
     cover: "",
     youtube: "https://www.youtube.com/watch?v=bpe2EWl9Zog&list=PLs_4rBValRlRsv5RgWV-eRb6QP06JnjH5&index=8",
+    screenshots: []
+  },
+
+  {
+    slug: "project-sosei",
+    title: "Project Sosei",
+    genre: "Shooter · Story",
+    itch: "",
+    description: "Frank wakes from the grave with fragmented memories, recalling only his mission—to save his daughter",
+    cover: "",
+    youtube: "https://www.youtube.com/watch?v=0ewM_gvnB1w",
     screenshots: []
   }
 ];

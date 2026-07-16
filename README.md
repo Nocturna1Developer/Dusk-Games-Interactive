@@ -22,6 +22,18 @@ Preview locally by double-clicking `index.html`.
 
 ---
 
+## Adding a whole new game
+
+The portfolio is built from the list in `js/games.js`, so a new folder alone won't
+appear — a static site can't scan folders. To add a game:
+
+1. Create its folder: `assets/images/games/<slug>/` and drop in a `_thumbnail.png`.
+2. Copy the template at the top of `js/games.js` into the list and fill in the
+   `slug` (= folder name) and `title`. Everything else is optional.
+
+That's it — the card and its page show up. (Project Sosei is already added as an
+example with just a slug + title.)
+
 ## Adding screenshots & trailers (the main thing)
 
 You keep a folder per game, e.g. `assets/images/games/slime-venture/` with its
@@ -47,10 +59,13 @@ Each game has an entry like this:
 }
 ```
 
-- **cover** — the picture on the Portfolio card. You can leave this `""`: the card
-  then falls back to the first screenshot, and if there's none, to the **YouTube
-  trailer's thumbnail** automatically (hi-res when the video has it). Set `cover`
-  only when you want specific art instead of the trailer thumbnail.
+- **cover** — the Portfolio card thumbnail. **Easiest option: leave it `""`** and
+  just drop a file named **`_thumbnail.png`** into that game's folder
+  (`assets/images/games/<slug>/`). The card finds it automatically — no editing
+  here. `_thumbnail.jpg`, `.jpeg`, `.webp`, and capital `.PNG` also work.
+  If a folder has no `_thumbnail`, the card falls back to the first screenshot,
+  then to the YouTube trailer's thumbnail, then to a dark placeholder. Set `cover`
+  to a path only when you want a specific file with a different name.
 - **youtube** — the trailer. Paste the normal YouTube link (with `&t=` timestamp
   or `&list=` playlist bits is fine — the site extracts the video for you).
   Leave `""` and the trailer is just skipped.
