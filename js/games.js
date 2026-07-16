@@ -61,7 +61,7 @@ const GAMES = [
   {
     slug: "project-sosei",
     title: "Project Sosei",
-    genre: "RELEASE DATE TBA · Shooter · Story",
+    genre: "RELEASE DATE TBA · Story",
     itch: "",
     description: "Frank wakes from the grave with fragmented memories, recalling only his mission—to save his daughter",
     cover: "",
