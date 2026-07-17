@@ -18,8 +18,9 @@
   <!-- ============ HEADER ============ -->
   <header class="site-header">
     <div class="wrap site-header__inner">
-      <a class="site-logo" href="index.html" aria-label="Dusk Games Interactive — home">
-        <img src="assets/images/logo.png" alt="Dusk Games Interactive" />
+      <a class="brand" href="index.html" aria-label="Dusk Games Interactive — home">
+        <img class="brand__logo" src="assets/images/logo.png" alt="" />
+        <span class="brand__name">Dusk Games Interactive</span>
       </a>
       <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
       <nav class="site-nav">
@@ -114,6 +115,52 @@
     </div>
   </section>
 
+  <!-- ============ PLAYERS & CREATORS (YouTube) ============ -->
+  <section class="home-community">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="display">Players &amp; creators.</h2>
+        <span class="section-note">People playing our games</span>
+      </div>
+      <!-- Add YouTube links in js/community.js -->
+      <div class="community__grid" id="community-videos"></div>
+    </div>
+  </section>
+
+  <!-- ============ PRESS ============ -->
+  <section class="home-press">
+    <div class="wrap">
+      <h2 class="display section-center-title">What players are saying.</h2>
+      <div class="press__grid">
+        <blockquote class="press__quote">
+          <p>&ldquo;Genuinely made me scream a few times. Great work!&rdquo;</p>
+          <cite>&mdash; Adrionic &middot; The Disappearance (itch.io)</cite>
+        </blockquote>
+        <blockquote class="press__quote">
+          <p>&ldquo;A very solid concept with fantastic level design.&rdquo;</p>
+          <cite>&mdash; AGLgames &middot; The Empty Vessel (itch.io)</cite>
+        </blockquote>
+        <blockquote class="press__quote">
+          <p>&ldquo;Loved the visuals and the storyline!&rdquo;</p>
+          <cite>&mdash; daturaplays &middot; The Disappearance (itch.io)</cite>
+        </blockquote>
+        <blockquote class="press__quote">
+          <p>&ldquo;Loved the game and hope to see more!&rdquo;</p>
+          <cite>&mdash; ASWhalerGamer &middot; The Empty Vessel (itch.io)</cite>
+        </blockquote>
+        <blockquote class="press__quote">
+          <p>&ldquo;Simple but effective &mdash; it keeps the mystery alive!&rdquo;</p>
+          <cite>&mdash; Cushionater &middot; The Disappearance (itch.io)</cite>
+        </blockquote>
+        <blockquote class="press__quote">
+          <p>&ldquo;Nice game &mdash; I liked the dash idea so much!&rdquo;</p>
+          <cite>&mdash; anas developments &middot; The Lost Legacy (itch.io)</cite>
+        </blockquote>
+      </div>
+      <p class="press__note">Press inquiries or need a press kit? Email <a href="mailto:duskgamesinteractive@gmail.com">duskgamesinteractive@gmail.com</a>.</p>
+    </div>
+  </section>
+
   <!-- ============ SOCIALS ============ -->
   <section class="socials">
     <div class="wrap">
@@ -178,6 +225,7 @@
   <script src="js/main.js"></script>
   <script src="js/games.js"></script>
   <script src="js/home.js"></script>
+  <script src="js/community.js"></script>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
