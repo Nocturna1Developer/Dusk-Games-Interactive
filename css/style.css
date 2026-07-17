@@ -723,35 +723,32 @@ body { background: linear-gradient(180deg, #1b1338 0%, #221949 55%, #2a1f52 100%
 }
 .hero--video .btn:hover { background: rgba(231,178,74,.16); color: #fff; }
 
-/* gold-gradient emphasis text ("LAST LIGHT") */
+/* LAST LIGHT */
 .display .em,
-.hero--video .hero__title .em{
-    display:inline;
-    font-style:italic;
-
-    /* softer gold */
-    background:linear-gradient(
+.hero--video .hero__title .em {
+    background: linear-gradient(
         180deg,
         #f7e6bf 0%,
         #e8c57a 55%,
         #c99b46 100%
     );
 
-    -webkit-background-clip:text;
-    background-clip:text;
-    -webkit-text-fill-color:transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
 
-    /* much more subtle depth */
-    filter:none;
-    text-shadow:
-        0 2px 4px rgba(0,0,0,.28);
+    /* Blend with the rest of the heading */
+    font-style: normal;
+    display: inline-block;
+    transform: skewX(-8deg);
 
-    /* remove oversized spacing */
-    padding:0;
-    margin:0;
+    text-shadow: 0 2px 4px rgba(0,0,0,.28);
+    filter: none;
 
-    /* tiny bit of emphasis only */
-    letter-spacing:.01em;
+    padding: 0;
+    margin: 0;
+    letter-spacing: .01em;
 }
 
 /* hero: purple wash over the screenshot/video */
