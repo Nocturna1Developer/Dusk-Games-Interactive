@@ -544,3 +544,8 @@ a { color: inherit; }
   .community__grid { grid-template-columns: 1fr; }
   .press__grid { grid-template-columns: 1fr; }
 }
+
+/* contact form status message */
+.form-status { margin-top: 1rem; font-size: .92rem; line-height: 1.4; }
+.form-status.is-ok  { color: #2f8f4e; }
+.form-status.is-err { color: #c0392b; }

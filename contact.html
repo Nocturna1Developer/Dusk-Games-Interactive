@@ -50,7 +50,16 @@
            Until then the form won't send. Prefer no form? Delete this block and
            keep the "Or reach out directly" panel. -->
       <div>
-        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <form id="contact-form" action="https://formsubmit.co/duskgamesinteractive@gmail.com" method="POST">
+          <!-- FormSubmit settings (no account needed). To hide your email from bots,
+               swap the action above for your hashed endpoint after the first submit. -->
+          <input type="hidden" name="_subject" value="New message from the Dusk Games website" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_next" value="https://nocturna1developer.github.io/Dusk-Games-Interactive/contact.html?sent=1" />
+          <!-- honeypot: real people leave this empty; bots fill it and get blocked -->
+          <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true" />
+
           <div class="field">
             <label for="name">Name</label>
             <input id="name" name="name" type="text" required />
@@ -64,6 +73,7 @@
             <textarea id="message" name="message" required></textarea>
           </div>
           <button class="btn btn--block" type="submit">Send message</button>
+          <p class="form-status" id="form-status" role="status" hidden></p>
         </form>
       </div>
 
@@ -133,6 +143,7 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script src="js/contact.js"></script>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
