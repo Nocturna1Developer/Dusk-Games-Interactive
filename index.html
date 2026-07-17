@@ -71,6 +71,34 @@
     </div>
   </section>
 
+  <!-- ============ FEATURED GAMES ============ -->
+  <section class="home-featured">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="display">Featured games.</h2>
+        <a class="section-link" href="portfolio.html">View all games &rarr;</a>
+      </div>
+      <!-- Cards are built from js/games.js. Edit FEATURED_SLUGS in js/home.js to choose which. -->
+      <div class="featured__grid" id="featured-games"></div>
+    </div>
+  </section>
+
+  <!-- ============ NOW IN DEVELOPMENT ============ -->
+  <section class="home-dev">
+    <div class="wrap home-dev__grid">
+      <div class="media home-dev__media" style="background-image:url('assets/images/games/rubble-rumble/_thumbnail.png')" role="img" aria-label="Rubble Rumble"></div>
+      <div class="home-dev__copy">
+        <p class="eyebrow">Now in development</p>
+        <h2 class="display home-dev__title">Rubble Rumble.</h2>
+        <p>A top-down multiplayer party game built around destructible environments &mdash; chaotic, last-one-standing matches. It's the studio's newest project, and it's just getting started.</p>
+        <div class="home-dev__cta">
+          <a class="btn" href="blog.html">Read the devlog</a>
+          <a class="btn btn--ghost" href="game.html?slug=rubble-rumble">View game</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ REEL / VIDEO ============ -->
   <section class="reel">
     <div class="wrap">
@@ -148,6 +176,8 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script src="js/games.js"></script>
+  <script src="js/home.js"></script>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
