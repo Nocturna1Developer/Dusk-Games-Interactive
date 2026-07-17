@@ -11,7 +11,7 @@
     root.innerHTML =
       '<a class="backlink" href="portfolio.html">&larr; All games</a>' +
       '<h1 class="display game-detail__title">Game not found.</h1>' +
-      '<p class="game-detail__desc">Pick a title from the <a href="portfolio.html">portfolio</a>.</p>';
+      '<p class="game-detail__desc">Pick a title from the <a href="portfolio.html">Games</a>.</p>';
     return;
   }
 
