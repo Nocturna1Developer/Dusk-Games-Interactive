@@ -725,10 +725,15 @@ body { background: linear-gradient(180deg, #1b1338 0%, #221949 55%, #2a1f52 100%
 
 /* gold-gradient emphasis text ("LAST LIGHT") */
 .display .em, .hero--video .hero__title .em {
-  background: linear-gradient(92deg, #f8dca4 0%, #e7b24a 52%, #d98f3a 100%);
+  background: linear-gradient(92deg, #ffe9b6 0%, #f7c968 48%, #eda845 100%);
   -webkit-background-clip: text; background-clip: text;
   -webkit-text-fill-color: transparent; color: transparent;
   font-style: italic;
+  /* keep italic overhang from being clipped by the background box */
+  display: inline-block; padding: 0 .1em .05em .03em; margin: 0 -.03em;
+  /* text-shadow bleeds through transparent glyphs — use a filter instead */
+  text-shadow: none;
+  filter: drop-shadow(0 2px 10px rgba(0,0,0,.45));
 }
 
 /* hero: purple wash over the screenshot/video */
