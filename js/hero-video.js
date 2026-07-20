@@ -12,7 +12,7 @@
   var mount = document.getElementById('hero-yt-player');
   if (!mount) return;
 
-  var VIDEO_ID = 'bm0kZng_vUc'; // change this to feature a different clip
+  var VIDEO_ID = 'JP2-1NQUMZ4'; // change this to feature a different clip
 
   var player = null;
   function tryPlay() {
