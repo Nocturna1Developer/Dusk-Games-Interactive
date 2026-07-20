@@ -46,7 +46,7 @@ a { color: inherit; }
   letter-spacing: .01em;
   margin: 0;
 }
-.display .em { color: var(--accent); font-style: italic; }
+.display .em { color: var(--accent); font-style: normal; }
 
 .eyebrow {
   font-size: .74rem;
@@ -577,7 +577,7 @@ body {
 /* ---- type ---- */
 .display { color: var(--ink); }
 .display .em {
-  font-style: italic;
+  font-style: normal;
   background: linear-gradient(95deg, var(--gold-2) 0%, #e8a33d 100%);
   -webkit-background-clip: text; background-clip: text; color: transparent;
 }
@@ -728,8 +728,8 @@ body { background: linear-gradient(180deg, #1b1338 0%, #221949 55%, #2a1f52 100%
   background: linear-gradient(92deg, #ffe9b6 0%, #f7c968 48%, #eda845 100%);
   -webkit-background-clip: text; background-clip: text;
   -webkit-text-fill-color: transparent; color: transparent;
-  font-style: italic;
-  /* keep italic overhang from being clipped by the background box */
+  font-style: normal;
+  /* padding retained from the old italic layout; harmless for upright text */
   display: inline-block; padding: 0 .1em .05em .03em; margin: 0 -.03em;
   /* text-shadow bleeds through transparent glyphs — use a filter instead */
   text-shadow: none;
@@ -790,3 +790,18 @@ body { background: linear-gradient(180deg, #1b1338 0%, #221949 55%, #2a1f52 100%
 @media (max-width: 860px) {
   .hero__banner img { width: min(85vw, 520px); opacity: .14; }
 }
+
+/* reel: "Demo Reel" label + circular play badge (restores missing sizing) */
+.reel__eyebrow {
+  text-align: center; font-size: .78rem; letter-spacing: .5em;
+  text-transform: uppercase; color: var(--muted); margin: 0 0 1rem;
+}
+.reel__badge {
+  width: 64px; height: 64px; margin: 0 auto 1.6rem;
+  border-radius: 50%; border: 1.5px solid var(--accent);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--gold-lt, var(--accent));
+  box-shadow: 0 0 26px rgba(231,178,74,.28);
+  cursor: pointer;
+}
+.reel__badge svg { width: 22px; height: 22px; margin-left: 3px; display: block; }
