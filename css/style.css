@@ -723,20 +723,17 @@ body { background: linear-gradient(180deg, #1b1338 0%, #221949 55%, #2a1f52 100%
 }
 .hero--video .btn:hover { background: rgba(231,178,74,.16); color: #fff; }
 
-/* LAST LIGHT */
-.display .em,
-.hero--video .hero__title .em {
-    color: #E88C52;
-    -webkit-text-fill-color: #E88C52;
-    background: none;
-
-    font-style: normal;
-    display: inline-block;
-
-    text-shadow:
-        0 2px 6px rgba(0,0,0,.35);
-
-    letter-spacing: .01em;
+/* gold-gradient emphasis text ("LAST LIGHT") */
+.display .em, .hero--video .hero__title .em {
+  background: linear-gradient(92deg, #ffe9b6 0%, #f7c968 48%, #eda845 100%);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent; color: transparent;
+  font-style: italic;
+  /* keep italic overhang from being clipped by the background box */
+  display: inline-block; padding: 0 .1em .05em .03em; margin: 0 -.03em;
+  /* text-shadow bleeds through transparent glyphs — use a filter instead */
+  text-shadow: none;
+  filter: drop-shadow(0 2px 10px rgba(0,0,0,.45));
 }
 
 /* hero: purple wash over the screenshot/video */
@@ -769,3 +766,27 @@ body { background: linear-gradient(180deg, #1b1338 0%, #221949 55%, #2a1f52 100%
 
 /* focus outlines */
 :focus-visible { outline: 2px solid var(--gold); }
+
+/* =========================================================
+   LOGO GLOW + HERO CENTER BANNER (mockup match)
+   ========================================================= */
+.brand__logo, .footer-logo img {
+  filter:
+    drop-shadow(0 0 6px rgba(231,178,74,.65))
+    drop-shadow(0 0 16px rgba(231,178,74,.4))
+    drop-shadow(0 0 34px rgba(231,178,74,.22));
+}
+
+.hero__banner {
+  position: absolute; z-index: 1; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden; pointer-events: none;
+}
+.hero__banner img {
+  width: min(64vw, 760px); height: auto;
+  opacity: .16; mix-blend-mode: screen;
+  filter: drop-shadow(0 0 40px rgba(231,178,74,.25));
+}
+@media (max-width: 860px) {
+  .hero__banner img { width: min(85vw, 520px); opacity: .14; }
+}
