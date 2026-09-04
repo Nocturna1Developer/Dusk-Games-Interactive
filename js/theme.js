@@ -1,15 +1,16 @@
 /* =========================================================
-   PALETTE PREVIEW  —  design/dev control
+   PALETTE PREVIEW  —  INTERNAL / DESIGN TOOL. NOT SHIPPED.
    ---------------------------------------------------------
-   Toggles the five neutral studio palettes defined in
-   css/style.css via [data-theme] on <html>, and remembers the
-   choice in localStorage so it survives page navigation.
+   Obsidian is the official palette and ships in css/style.css.
+   This control is no longer loaded by any page.
 
-   TO REMOVE LATER:
-     1. delete this file
-     2. delete the <script src="js/theme.js"></script> line
-        from the <head> of each .html page
-   The site then falls back to the default palette on :root.
+   TO PREVIEW THE ALTERNATES AGAIN (locally only), add to <head>
+   AFTER the style.css link:
+
+     <link rel="stylesheet" href="css/palettes.css" />
+     <script src="js/theme.js"></script>
+
+   Remove both lines again before shipping.
    ========================================================= */
 (function () {
   'use strict';

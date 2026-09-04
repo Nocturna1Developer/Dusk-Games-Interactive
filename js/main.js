@@ -50,3 +50,82 @@ function youtubeEmbed(url) {
     }
   });
 })();
+
+// Header: condense into a blurred bar once the page moves. Over the video
+// hero the bar starts transparent (see .site-header rules in style.css).
+(function () {
+  var header = document.querySelector('.site-header');
+  if (!header) return;
+
+  // Reading scrollY is cheap and the DOM is only touched when the state
+  // actually flips, so this needs no rAF throttle to stay smooth.
+  var isOn = null;
+  function update() {
+    var shouldBeOn = window.scrollY > 24;
+    if (shouldBeOn === isOn) return;
+    isOn = shouldBeOn;
+    if (shouldBeOn) header.classList.add('is-scrolled');
+    else header.classList.remove('is-scrolled');
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update, { passive: true });
+  update();
+})();
+
+// Scroll reveal: a single short fade-and-rise the first time a block enters
+// view. Added from JS so the site stays fully visible without it, and skipped
+// entirely for reduced-motion users.
+(function () {
+  function init() {
+    if (!('IntersectionObserver' in window)) return;
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    // blocks that reveal as a whole
+    var SINGLE = '.story__grid, .genres__grid, .section-head, .section-center-title,' +
+                 '.reel__eyebrow, .reel__badge, .reel__title, .reel__frame,' +
+                 '.socials__title, .socials .social-row, .press__note,' +
+                 '.page-head, .post, .legal__body, .game-detail__cta, .video-frame';
+    // grids whose children reveal in sequence
+    var GROUPS = '.featured__grid, .home-dev__grid, .community__grid, .press__grid,' +
+                 '.games__grid, .about__grid, .contact__grid, .gallery';
+
+    var items = [];
+
+    [].forEach.call(document.querySelectorAll(SINGLE), function (el) {
+      el.classList.add('reveal');
+      items.push(el);
+    });
+
+    [].forEach.call(document.querySelectorAll(GROUPS), function (grid) {
+      [].forEach.call(grid.children, function (child, i) {
+        child.classList.add('reveal');
+        if (i > 0) child.style.transitionDelay = Math.min(i, 3) * 70 + 'ms';
+        items.push(child);
+      });
+    });
+
+    if (!items.length) return;
+
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-in');
+        io.unobserve(entry.target);
+      });
+    }, { rootMargin: '0px 0px -6% 0px', threshold: 0.06 });
+
+    items.forEach(function (el) { io.observe(el); });
+
+    // Safety net: reveal is a presentation nicety, never a reason for content
+    // to stay hidden. If the observer has delivered nothing at all, show
+    // everything rather than risk an invisible page.
+    setTimeout(function () {
+      if (document.querySelector('.reveal.is-in')) return;
+      items.forEach(function (el) { el.classList.add('is-in'); });
+    }, 2500);
+  }
+
+  // run after the card-building scripts have populated their grids
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
