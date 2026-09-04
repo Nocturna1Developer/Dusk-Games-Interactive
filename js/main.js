@@ -57,6 +57,15 @@ function youtubeEmbed(url) {
   var header = document.querySelector('.site-header');
   if (!header) return;
 
+  // Publish the header's real height so the full-frame hero can subtract it
+  // and still end exactly at the fold. Falls back to a sane value in CSS.
+  function publishHeight() {
+    document.documentElement.style.setProperty('--header-h', header.offsetHeight + 'px');
+  }
+  publishHeight();
+  window.addEventListener('resize', publishHeight, { passive: true });
+  window.addEventListener('load', publishHeight);
+
   // Reading scrollY is cheap and the DOM is only touched when the state
   // actually flips, so this needs no rAF throttle to stay smooth.
   var isOn = null;
