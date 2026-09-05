@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio — Dusk Games Interactive</title>
-  <meta name="description" content="Games by Dusk Games Interactive — play and download on itch.io." />
+  <title>Rubble Rumble Devlog — Dusk Games Interactive</title>
+  <meta name="description" content="Rubble Rumble devlog from Dusk Games Interactive." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -13,7 +13,6 @@
   <link rel="icon" href="assets/images/favicon.ico" sizes="any" />
   <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png" />
 </head>
-<body>
 
   <header class="site-header">
     <div class="wrap site-header__inner">
@@ -24,24 +23,33 @@
       <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
       <nav class="site-nav">
         <a href="index.html">Home</a>
-        <a href="portfolio.html" aria-current="page">Games</a>
-        <a href="blog.html">Blog</a>
+        <a href="portfolio.html">Games</a>
+        <a href="blog.html" aria-current="page">Blog</a>
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
       </nav>
     </div>
   </header>
 
-  <section class="page-head">
+  <!-- ============ DEVLOG ============
+       PLACEHOLDER COPY — replace the text inside .post__body with the
+       real devlog. Keep the <h3> subheadings for section breaks. -->
+  <section class="blog">
     <div class="wrap">
-      <h1 class="display page-head__title">Games.</h1>
-      <p class="page-head__lede">Everything the studio has shipped, across genres. Click a title for screenshots and a trailer, or play it on itch.io.</p>
+      <article class="post">
+        <a class="backlink" href="blog.html">&larr; All devlogs</a>
+        <p class="post__meta">Devlog #02 &middot; Date TBA</p>
+        <h1 class="display post__title">Rubble Rumble</h1>
+        <div class="media post__media" style="background-image:url('assets/images/games/rubble-rumble/_thumbnail.png')" role="img" aria-label="Rubble Rumble"></div>
+        <div class="post__body">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <h3>Lorem ipsum dolor</h3>
+          <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <h3>Consectetur adipiscing</h3>
+          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.</p>
+        </div>
+      </article>
     </div>
-  </section>
-
-  <!-- Cards are built from js/games.js — edit that file to add or change games. -->
-  <section class="games">
-    <div class="wrap games__grid" id="games-grid"></div>
   </section>
 
   <footer class="site-footer">
@@ -84,8 +92,6 @@
   </footer>
 
   <script src="js/main.js?v=3"></script>
-  <script src="js/games.js"></script>
-  <script src="js/portfolio.js"></script>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
