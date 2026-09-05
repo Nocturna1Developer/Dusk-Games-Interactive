@@ -568,7 +568,7 @@ a { color: inherit; }
 .post__title { font-size: clamp(1.9rem, 4vw, 2.9rem); margin: 0 0 1.4rem; }
 .post__media { aspect-ratio: 16 / 9; border-radius: 3px; margin-bottom: 1.9rem; }
 .post__body p { color: var(--color-text-secondary); margin: 0 0 1.2rem; }
-.post__body h2 { font-family: var(--font-display); text-transform: uppercase; letter-spacing:.03em; font-size: 1.4rem; color: var(--color-text-primary); margin: 2.2rem 0 .7rem; }
+.post__body h2, .post__body h3 { font-family: var(--font-display); text-transform: uppercase; letter-spacing:.03em; font-size: 1.4rem; color: var(--color-text-primary); margin: 2.2rem 0 .7rem; }
 
 /* =========================================================
    HOME — featured games + "now in development"
@@ -654,7 +654,7 @@ body {
 }
 .eyebrow, .section-note { color: var(--color-accent); }
 .page-head__title, .post__title, .game-detail__title,
-.about__socials h3, .legal__body h2, .post__body h2, .footer-col h3 { color: var(--color-text-primary); }
+.about__socials h3, .legal__body h2, .post__body h2, .post__body h3, .footer-col h3 { color: var(--color-text-primary); }
 .page-head__lede, .story__copy p, .home-dev__copy p, .post__body p,
 .about__body p, .legal__body p, .contact__direct p, .footer-tagline { color: var(--color-text-secondary); }
 .about__body p:first-child { color: var(--color-text-primary); }
