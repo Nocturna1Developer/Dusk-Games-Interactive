@@ -91,7 +91,7 @@ function youtubeEmbed(url) {
 
     // blocks that reveal as a whole
     var SINGLE = '.story__grid, .genres__grid, .section-head, .section-center-title,' +
-                 '.reel__eyebrow, .reel__badge, .reel__title, .reel__frame,' +
+                 '.reel__eyebrow, .reel__title, .reel__frame,' +
                  '.socials__title, .socials .social-row, .press__note,' +
                  '.page-head, .post, .legal__body, .game-detail__cta, .video-frame';
     // grids whose children reveal in sequence

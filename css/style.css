@@ -887,25 +887,8 @@ body { background: linear-gradient(180deg, var(--color-background) 0%, var(--col
 /* reel: "Demo Reel" label + circular play badge (restores missing sizing) */
 .reel__eyebrow {
   text-align: center; font-size: .78rem; letter-spacing: .5em;
-  text-transform: uppercase; color: var(--color-text-secondary); margin: 0 0 1rem;
+  text-transform: uppercase; color: var(--color-text-secondary); margin: 0 0 1.4rem;
 }
-.reel__badge {
-  width: 64px; height: 64px; margin: 0 auto 1.6rem;
-  border-radius: 50%; border: 1px solid var(--color-border-strong);
-  display: flex; align-items: center; justify-content: center;
-  color: var(--color-text-primary);
-  box-shadow: none;
-  cursor: pointer;
-  transition: background var(--dur) var(--ease), border-color var(--dur) var(--ease),
-              color var(--dur) var(--ease), transform var(--dur) var(--ease);
-}
-.reel__badge:hover {
-  background: var(--color-accent);
-  border-color: var(--color-accent);
-  color: var(--color-accent-contrast);
-  transform: scale(1.06);
-}
-.reel__badge svg { width: 22px; height: 22px; margin-left: 3px; display: block; }
 
 /* =========================================================
    OBSIDIAN POLISH
