@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css?v=4" />
+  <link rel="stylesheet" href="css/style.css?v=5" />
   <link rel="icon" type="image/png" href="assets/images/favicon.png?v=2" />
   <link rel="icon" href="assets/images/favicon.ico" sizes="any" />
   <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png" />
@@ -41,38 +41,25 @@
 
   <section class="blog">
     <div class="wrap">
-      <!-- To add a post, copy this whole <article> block and edit it. -->
-      <article class="post">
-        <p class="post__meta">Devlog #02 &middot; Date TBA</p>
-        <h2 class="display post__title">Starting Rubble Rumble</h2>
-        <div class="media post__media" style="background-image:url('assets/images/games/rubble-rumble/_thumbnail.png')" role="img" aria-label="Rubble Rumble"></div>
-        <div class="post__body">
-          <p><strong>Rubble Rumble</strong> is the studio&rsquo;s newest project, and it&rsquo;s just getting started. It&rsquo;s a top-down multiplayer party game about dropping into an arena with nothing, grabbing whatever weapon you can find, and being the last player standing while the level comes apart around you.</p>
-          <h3>The arena is the other opponent</h3>
-          <p>Destruction isn&rsquo;t set dressing here &mdash; it&rsquo;s the point. Cover you trusted thirty seconds ago should be gone. The route you planned should stop existing halfway through the match. If a round ends somewhere that looks exactly like where it started, something has gone wrong.</p>
-          <p>That&rsquo;s the thing I want to get right before anything else, because it changes how every other system has to behave. Weapons have to be readable in a space that keeps rearranging itself. Movement has to stay trustworthy when the floor is negotiable.</p>
-          <h3>Core loop first</h3>
-          <p>The plan for this phase is deliberately narrow: movement that feels good, pickups worth crossing the map for, and destruction that reads clearly at a glance. Maps, modes, and everything else come after that core actually clicks. It&rsquo;s a party game &mdash; if it isn&rsquo;t fun with friends in its simplest form, more content won&rsquo;t save it.</p>
-          <h3>Follow along</h3>
-          <p>Like the rest of the catalog, Rubble Rumble is being built in Unity. I&rsquo;ll be posting progress here as it comes together &mdash; prototypes, problems, and the occasional happy accident. You can see where it stands on the <a href="game.html?slug=rubble-rumble">Rubble Rumble page</a>, or keep up through the studio&rsquo;s socials and <a href="https://dusk-studios.itch.io/" target="_blank" rel="noopener">itch.io</a>.</p>
-        </div>
-      </article>
+      <!-- Devlog cards. PLACEHOLDER COPY — replace the <p> text in each
+           card with the real devlog summary before publishing. -->
+      <div class="devlog-grid">
 
-      <article class="post">
-        <p class="post__meta">Devlog #01 &middot; Date TBA</p>
-        <h2 class="display post__title">Project Sosei: waking up with nothing</h2>
-        <div class="media post__media" style="background-image:url('assets/images/games/project-sosei/_thumbnail.png')" role="img" aria-label="Project Sosei"></div>
-        <div class="post__body">
-          <p><strong>Project Sosei</strong> is the studio&rsquo;s story project. Frank wakes from the grave with fragmented memories, holding on to one thing he&rsquo;s certain of &mdash; his mission to save his daughter.</p>
-          <h3>Starting from fragments</h3>
-          <p>The premise sets the whole design brief. Frank doesn&rsquo;t know what happened to him, and neither should the player. That means resisting the urge to explain things early: no opening crawl, no character who conveniently narrates the backstory. What the player understands should arrive in pieces, in the same order Frank gets it.</p>
-          <p>It&rsquo;s a harder way to write a game than front-loading exposition, but it&rsquo;s the only version of this story that works. The confusion isn&rsquo;t an obstacle to get past &mdash; it&rsquo;s the thing the player is meant to feel.</p>
-          <h3>One thread to hold onto</h3>
-          <p>A story built on missing information needs something solid underneath it, and here that&rsquo;s the daughter. Everything else can stay uncertain as long as the reason to keep moving forward doesn&rsquo;t. That single fixed point is what keeps fragmented storytelling from turning into aimless wandering.</p>
-          <h3>Where it stands</h3>
-          <p>The trailer and a set of screenshots are up on the <a href="game.html?slug=project-sosei">Project Sosei page</a> if you want a look at the tone I&rsquo;m going for. More to come as it develops.</p>
-        </div>
-      </article>
+        <article class="devlog-card">
+          <div class="media devlog-card__media" style="background-image:url('assets/images/games/rubble-rumble/_thumbnail.png')" role="img" aria-label="Rubble Rumble"></div>
+          <p class="devlog-card__meta">Devlog #02 &middot; Date TBA</p>
+          <h2 class="display devlog-card__title">Rubble Rumble</h2>
+          <p class="devlog-card__excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+        </article>
+
+        <article class="devlog-card">
+          <div class="media devlog-card__media" style="background-image:url('assets/images/games/project-sosei/_thumbnail.png')" role="img" aria-label="Project Sosei"></div>
+          <p class="devlog-card__meta">Devlog #01 &middot; Date TBA</p>
+          <h2 class="display devlog-card__title">Project Sosei</h2>
+          <p class="devlog-card__excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+        </article>
+
+      </div>
     </div>
   </section>
 
