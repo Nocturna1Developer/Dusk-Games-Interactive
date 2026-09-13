@@ -3,16 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Project Sosei Devlog — Dusk Games Interactive</title>
-  <meta name="description" content="Project Sosei devlog from Dusk Games Interactive." />
+  <title>Sosei Devlog — Dusk Games Interactive</title>
+  <meta name="description" content="A week-by-week development log for Sosei, a story-driven first-person shooter built solo in Unity." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css?v=7" />
+  <link rel="stylesheet" href="css/style.css?v=8" />
   <link rel="icon" type="image/png" href="assets/images/favicon.png?v=2" />
   <link rel="icon" href="assets/images/favicon.ico" sizes="any" />
   <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png" />
 </head>
+<body>
 
   <header class="site-header">
     <div class="wrap site-header__inner">
@@ -31,26 +32,299 @@
     </div>
   </header>
 
-  <!-- ============ DEVLOG ============
-       PLACEHOLDER COPY — replace the text inside .post__body with the
-       real devlog. Keep the <h3> subheadings for section breaks. -->
-  <section class="blog">
-    <div class="wrap">
-      <article class="post">
+  <!-- ============ DEVLOG: SOSEI ============ -->
+  <article class="devlog">
+
+    <header class="devlog-mast">
+      <div class="wrap">
         <a class="backlink" href="blog.html">&larr; All devlogs</a>
-        <p class="post__meta">Devlog #01 &middot; Date TBA</p>
-        <h1 class="display post__title">Project Sosei</h1>
-        <div class="media post__media" style="background-image:url('assets/images/games/project-sosei/_thumbnail.png')" role="img" aria-label="Project Sosei"></div>
-        <div class="post__body">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-          <h3>Lorem ipsum dolor</h3>
-          <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          <h3>Consectetur adipiscing</h3>
-          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.</p>
+        <p class="eyebrow">Development log &middot; solo project &middot; Unity</p>
+        <h1 class="display devlog-title">Sosei</h1>
+        <p class="devlog-tagline">A realistic dystopian first-person shooter about morality, discovery and hope. Built by one person, in the evenings, over three years.</p>
+        <div class="devlog-stats">
+          <div class="devlog-stat"><b>3</b><span>calendar years</span></div>
+          <div class="devlog-stat"><b>9</b><span>weeks of real work</span></div>
+          <div class="devlog-stat"><b>98</b><span>commits</span></div>
+          <div class="devlog-stat"><b>13,400</b><span>lines of my own code</span></div>
+          <div class="devlog-stat"><b>11</b><span>enemy types</span></div>
         </div>
-      </article>
+      </div>
+    </header>
+
+    <section class="devlog-intro">
+      <div class="wrap">
+        <p><strong>Sosei</strong> is a single-player shooter set in a quiet, ruined version of our world. It is told in six acts that move you from a rural gas station, out into fog, through an abandoned hospital, into a dead city, and finally home.</p>
+        <p>This log covers every week of work from the first day to now. That is three calendar years on paper, but only about <strong>nine weeks</strong> of actual development spread across them. I have left the empty stretches in, with the real dates, because the gaps are part of the honest story of making something alone.</p>
+      </div>
+    </section>
+
+    <div class="wrap devlog-timeline">
+
+      <!-- WEEK 1 -->
+      <section class="devlog-entry">
+        <div class="devlog-whead">
+          <div class="devlog-num">01</div>
+          <div>
+            <p class="devlog-meta">7&ndash;13 August 2023 &middot; 11 commits</p>
+            <h2 class="display devlog-h2">Can I even do this?</h2>
+          </div>
+        </div>
+        <div class="devlog-tags"><span class="devlog-tag">First build</span><span class="devlog-tag">Enemy AI</span></div>
+        <p>The project existed by the end of the first day. I made a Unity project, dropped in a first-person player from an asset pack, and started wiring up an enemy that could see me.</p>
+        <p>How planned was any of this? The commits are named &ldquo;more commits&rdquo;, &ldquo;organizing&rdquo; and &ldquo;added start&rdquo;. It was pure curiosity. I wanted to know whether a person on their own could get an enemy to notice them and react.</p>
+        <div class="devlog-state">
+          <p class="eyebrow">Playable state</p>
+          <p>You could walk around a test area with something in it that noticed you.</p>
+        </div>
+      </section>
+
+      <!-- WEEK 2 -->
+      <section class="devlog-entry">
+        <div class="devlog-whead">
+          <div class="devlog-num">02</div>
+          <div>
+            <p class="devlog-meta">14&ndash;20 August 2023 &middot; 12 commits</p>
+            <h2 class="display devlog-h2">A test map, and the first crash</h2>
+          </div>
+        </div>
+        <div class="devlog-tags"><span class="devlog-tag">Prototype level</span><span class="devlog-tag">Enemy AI</span><span class="devlog-tag">Bug hunt</span></div>
+        <p>I built a prototype scene: a plain grey level with room to run and blocks to hide behind, so I could test an enemy without loading an entire world first. That scene is still in the game today, and every test in this log was run in it.</p>
+        <p>Then the AI started fighting back. Four commits in a row read &ldquo;ai bugs&rdquo;, &ldquo;ai fix in progress&rdquo;, &ldquo;game keeps crashing, attempting fix&rdquo;. The week ended on a win, though. The last commit of 2023 is called <em>AI Checkpoint Bandit &mdash; AKM working</em>: one bandit, one rifle, behaving himself.</p>
+        <p>And then I stopped.</p>
+        <div class="devlog-state">
+          <p class="eyebrow">Playable state</p>
+          <p>One enemy who would find you and shoot at you in a test level.</p>
+        </div>
+      </section>
+
+      <!-- GAP 1 -->
+      <div class="devlog-gap">
+        <p class="devlog-gap-title">26 months of nothing</p>
+        <p>August 2023 to October 2025. Life happened, and the project sat untouched. When I finally came back to it, I did not carry on from where I left off. I started again.</p>
+      </div>
+
+      <!-- WEEK 3 -->
+      <section class="devlog-entry">
+        <div class="devlog-whead">
+          <div class="devlog-num">03</div>
+          <div>
+            <p class="devlog-meta">26 October &ndash; 2 November 2025 &middot; 32 commits</p>
+            <h2 class="display devlog-h2">Starting over, properly</h2>
+          </div>
+        </div>
+        <div class="devlog-tags"><span class="devlog-tag">Project setup</span><span class="devlog-tag">Environment</span><span class="devlog-tag">Gunplay</span></div>
+        <p>The busiest week in the project&rsquo;s history, and almost none of it was gameplay.</p>
+        <p>First the repository was rebuilt: one folder for my own code, one for bought asset packs, and large file storage switched on so that hundred-megabyte models and audio files do not destroy the project history. Boring, and the single most valuable week of work in the whole log.</p>
+        <p>Then the world went in. A forest environment pack, skyboxes, audio, animation sets. A lot of that week was spent on one specific thing: the fog. There is a commit literally named <em>perfected the foggy effect for now</em>. The look of the game was decided that week and has not changed since.</p>
+        <p>At the end of the week I turned to the guns, and the commit names get noticeably happier: &ldquo;updating gunplay&rdquo;, &ldquo;working on fixing gunplay&rdquo;, &ldquo;massive progress on ai and gun gameplay&rdquo;.</p>
+        <div class="devlog-plain">
+          <p class="eyebrow">In plain English</p>
+          <p>Week 1 was me putting content into a mess. Week 3 was me building somewhere for content to go.</p>
+        </div>
+        <div class="devlog-state">
+          <p class="eyebrow">Playable state</p>
+          <p>A foggy forest you could walk through and shoot in.</p>
+        </div>
+      </section>
+
+      <!-- WEEK 4 -->
+      <section class="devlog-entry">
+        <div class="devlog-whead">
+          <div class="devlog-num">04</div>
+          <div>
+            <p class="devlog-meta">3&ndash;9 November 2025 &middot; 3 commits</p>
+            <h2 class="display devlog-h2">The zombies show up</h2>
+          </div>
+        </div>
+        <div class="devlog-tags"><span class="devlog-tag">Characters</span><span class="devlog-tag">Effects</span></div>
+        <p>A short, quiet week. Zombie character models and their animation sets came into the project, and the particle effects got a pass: muzzle flashes, bullet impacts, dust.</p>
+        <p>Not much to look at, but it settled who is actually in this game. Two kinds of threat: people who chose to be dangerous, and people who had no say in it.</p>
+        <div class="devlog-state">
+          <p class="eyebrow">Playable state</p>
+          <p>Unchanged from last week, but the cast list was now complete.</p>
+        </div>
+      </section>
+
+      <!-- WEEK 5 -->
+      <section class="devlog-entry">
+        <div class="devlog-whead">
+          <div class="devlog-num">05</div>
+          <div>
+            <p class="devlog-meta">10&ndash;16 November 2025 &middot; 9 commits</p>
+            <h2 class="display devlog-h2">The enemy finally hurts you</h2>
+          </div>
+        </div>
+        <div class="devlog-tags"><span class="devlog-tag">Scene structure</span><span class="devlog-tag">Enemy AI</span><span class="devlog-tag">Damage</span></div>
+        <p>Two things happened this week, and both mattered.</p>
+        <p>I created every scene in the game as an empty placeholder: the main menu, five acts with a short cutscene before each one, and the credits. All of them empty, but the <em>shape</em> of the entire game now existed and I could walk from the first to the last. Having the whole skeleton in front of you changes how you think about it.</p>
+        <p>Then the enemy AI got serious. The commit names tell that story without any help from me: &ldquo;Starting to implement enemy AI&rdquo;, then &ldquo;ai semi working&rdquo;, then <em>ai finally damages player</em>. After that I made variations, so that not every enemy was the same man with the same gun.</p>
+        <div class="devlog-plain">
+          <p class="eyebrow">In plain English</p>
+          <p>An enemy that can shoot is a tech demo. An enemy that can actually kill you is a game.</p>
+        </div>
+        <div class="devlog-state">
+          <p class="eyebrow">Playable state</p>
+          <p>Enemies that hunt you, shoot you, and take your health down. You could now lose.</p>
+        </div>
+      </section>
+
+      <!-- WEEK 6 -->
+      <section class="devlog-entry">
+        <div class="devlog-whead">
+          <div class="devlog-num">06</div>
+          <div>
+            <p class="devlog-meta">17&ndash;23 November 2025 &middot; 7 commits</p>
+            <h2 class="display devlog-h2">Enemies learn to hold their guns</h2>
+          </div>
+        </div>
+        <div class="devlog-tags"><span class="devlog-tag">Animation rigging</span><span class="devlog-tag">Enemy variety</span><span class="devlog-tag">Terrain</span></div>
+        <p>I added Unity&rsquo;s Animation Rigging package, and it is worth explaining why that matters.</p>
+        <p>Normally a game character can only play animations that a human recorded in advance. So an enemy &ldquo;aiming at you&rdquo; is really just playing a clip called <em>aim forwards</em> and quietly hoping you are standing in front of him. Rigging lets code bend the character&rsquo;s actual bones while the game is running, so the spine and arms can point at wherever you genuinely are.</p>
+        <p>Every bandit was then worked over until they were playable, the zombies got a pass, and I started laying out real terrain and the cutscene scenes.</p>
+        <div class="devlog-state">
+          <p class="eyebrow">Playable state</p>
+          <p>Seven different bandits, all playable, all turning to aim at you. The aiming was not actually <em>correct</em> yet. That took another ten months, and it is Week 9.</p>
+        </div>
+      </section>
+
+      <!-- WEEK 7 -->
+      <section class="devlog-entry">
+        <div class="devlog-whead">
+          <div class="devlog-num">07</div>
+          <div>
+            <p class="devlog-meta">24&ndash;30 November 2025 &middot; 6 commits</p>
+            <h2 class="display devlog-h2">Talking</h2>
+          </div>
+        </div>
+        <div class="devlog-tags"><span class="devlog-tag">Dialogue</span><span class="devlog-tag">Level layout</span></div>
+        <p>I set up a dialogue system, so the story can be told inside the game rather than described in a design document. Three commits in a row go &ldquo;setting up dialogue system&rdquo;, &ldquo;made some progress in this dialogue system&rdquo;, &ldquo;great progress on dialogue&rdquo;, which is roughly what learning a new tool feels like from the inside.</p>
+        <p>More terrain and level layout on top of that. The last commit of the week is named &ldquo;updateidng sjdasd&rdquo;, which is the sound a person makes at two in the morning.</p>
+        <p>And then, again, I stopped.</p>
+        <div class="devlog-state">
+          <p class="eyebrow">Playable state</p>
+          <p>A shooter that could also hold a conversation.</p>
+        </div>
+      </section>
+
+      <!-- GAP 2 -->
+      <div class="devlog-gap">
+        <p class="devlog-gap-title">9 months of nothing</p>
+        <p>December 2025 to September 2026. The second long silence. The difference this time was that I came back knowing exactly what was wrong with the project.</p>
+      </div>
+
+      <!-- WEEK 8 -->
+      <section class="devlog-entry">
+        <div class="devlog-whead">
+          <div class="devlog-num">08</div>
+          <div>
+            <p class="devlog-meta">1&ndash;7 September 2026 &middot; 7 commits</p>
+            <h2 class="display devlog-h2">The rebuild: one way in, one way through</h2>
+          </div>
+        </div>
+        <div class="devlog-tags"><span class="devlog-tag">Architecture</span><span class="devlog-tag">Tooling</span><span class="devlog-tag">New UI</span><span class="devlog-tag">Audio</span></div>
+        <p>I came back with one rule: no new features until the foundations are right. Nothing in this week is visible in a screenshot, and everything after it was possible because of it.</p>
+        <ul class="devlog-list">
+          <li><strong>The project moved to the top of the repository</strong>, so opening it is not a treasure hunt.</li>
+          <li><strong>A startup scene called Bootstrap.</strong> It loads once when the game launches and is never unloaded. It holds the things that have to survive between levels: the thing that loads scenes, the game manager, the dialogue manager, settings. Every level now loads on top of it, one at a time. Before this, each level carried its own copy of all of that, and the copies quietly disagreed with each other.</li>
+          <li><strong>Every level cleaned out</strong> and organised the same way, with the same named groups in the same order, so I can find anything in any level without thinking.</li>
+          <li><strong>Tools that configure the enemies for me.</strong> Seven bandits, each with dozens of settings, is a guarantee that one of them is subtly wrong. Now a script sets all of them, and when something needs to change I re-run the script instead of clicking through seven characters.</li>
+          <li><strong>The bought menu kit was thrown out</strong> and rebuilt with Unity&rsquo;s own UI system, driven by a single theme file that decides every font and colour in the game.</li>
+          <li><strong>All sound routed through a proper mixer</strong>, so the volume sliders in the settings menu actually control everything, including sounds that other packages create while the game is running.</li>
+        </ul>
+        <div class="devlog-plain">
+          <p class="eyebrow">In plain English</p>
+          <p>The game used to be five projects in a trench coat. After this week it was one game that starts in one place, looks like one product, and can be changed in one place.</p>
+        </div>
+        <div class="devlog-state">
+          <p class="eyebrow">Playable state</p>
+          <p>The same game as before, but it now boots cleanly, every level loads the same way, and the menus are mine.</p>
+        </div>
+      </section>
+
+      <!-- WEEK 9 -->
+      <section class="devlog-entry">
+        <div class="devlog-whead">
+          <div class="devlog-num">09</div>
+          <div>
+            <p class="devlog-meta">8&ndash;13 September 2026 &middot; 11 commits</p>
+            <h2 class="display devlog-h2">Saving, polish, and enemies that think</h2>
+          </div>
+        </div>
+        <div class="devlog-tags"><span class="devlog-tag">Save system</span><span class="devlog-tag">Weapon wheel</span><span class="devlog-tag">Performance</span><span class="devlog-tag">Enemy AI</span><span class="devlog-tag">Aiming</span></div>
+        <p>The biggest week of features in the project&rsquo;s life, and the one I would show someone first.</p>
+
+        <h3 class="display devlog-h3">Things you can feel</h3>
+        <ul class="devlog-list">
+          <li>A rebuilt pause menu, and a <strong>weapon wheel</strong>: hold Tab, time slows to about a third, pick a gun.</li>
+          <li><strong>Ammunition is picked up by walking over it</strong>, with a small feed in the corner telling you what you got. Weapons still need a deliberate press, because picking up a gun should be a decision.</li>
+          <li><strong>One colour grade over every level</strong>, so the whole game looks like the same game instead of a set of separate scenes.</li>
+          <li>A <strong>photosensitivity and motion sickness warning</strong> on the splash screen, the way a commercial release does it. It cannot be skipped for the first two seconds.</li>
+          <li><strong>Enemy gunfire now gets quieter with distance.</strong> It used to play at nearly full volume across the entire map, which made every fight sound like it was happening inside your head.</li>
+          <li>A pass with the profiler to find the frames that stuttered, and fixes for each of them.</li>
+        </ul>
+
+        <h3 class="display devlog-h3">Saving the game</h3>
+        <p>Written from scratch this week. One save slot, written in a way that cannot leave you with half a file, with a backup kept alongside it, and a corrupted save quarantined instead of crashing the game. It remembers the level, where you are standing, your health and stamina, every item in your inventory, which weapon you had out, and the story flags of what you have already done.</p>
+        <p>It replaced a paid save asset that had been sitting in the project for a year without ever being used.</p>
+
+        <h3 class="display devlog-h3">Enemies that think</h3>
+        <p>This was the heart of the week. The enemies used a bought AI package, and that package is good at the mechanical parts: seeing, pathfinding, shooting, taking cover. What it does not give you is a person. So I built a layer on top of it.</p>
+        <div class="devlog-panel">
+          <h3 class="display devlog-h3">What the bandits do now</h3>
+          <dl class="devlog-beh">
+            <div><dt>They have eyes, not radar</dt><dd>A field of view of roughly 120 degrees. Before this week they could see in a full circle. You can now get behind someone.</dd></div>
+            <div><dt>They take a moment</dt><dd>Between seeing you and firing there is a real pause. A third of a second for the aggressive ones, nearly a full second for the nervous one.</dd></div>
+            <div><dt>They remember where they last <em>saw</em> you</dt><dd>Not where you are. Break line of sight and they go to the spot where you disappeared, search the area around it, and eventually give up and go back to what they were doing.</dd></div>
+            <div><dt>They hear gunfire, roughly</dt><dd>A shot does not hand them your position. It gives them a rough direction, and the further away they are the more wrong it is. They go and look at the wrong place first.</dd></div>
+            <div><dt>They shout</dt><dd>Whoever spots you tells the people near him, after a short delay. They come to look. They do not get a free lock on you just because their friend saw you.</dd></div>
+            <div><dt>They have nerve, and it can break</dt><dd>Watching a friend die costs morale. The coward runs away and comes back when he has recovered. A leader standing nearby steadies everyone around him.</dd></div>
+            <div><dt>They count their bullets</dt><dd>Thirty rounds in a rifle, six in the revolver. When it runs out they reload, and they cannot shoot you while they do.</dd></div>
+            <div><dt>Their hands are actually on the gun</dt><dd>The hardest problem of the week, and it had three separate causes underneath it. Now measured: the rifle points within a couple of degrees of the target, and the supporting hand sits exactly on the grip.</dd></div>
+          </dl>
+        </div>
+        <p>The hands deserve their own paragraph, because it is the kind of bug that is invisible until you look at it and then impossible to unsee. Three things were wrong at once. A constraint on the wrist was fighting the animation and twisting it. The method used to make the character aim was mathematically the wrong tool, and bent the spine into a hunch. And the weapon models were simply mounted crooked in the character&rsquo;s hand, by as much as nineteen degrees on one rifle, which meant a character aiming perfectly still missed by a wide margin. All three are fixed, and there is now an automated test that puts the player in eleven different positions around an enemy and measures the result.</p>
+
+        <h3 class="display devlog-h3">And something else</h3>
+        <p>Occasionally, when you are not in a fight, a dark figure of a person is standing at the edge of your vision, watching you. Look straight at it for a moment and it is gone. Walk towards it and it is gone. No glow, no sound cue, no jump scare. Most players will not be sure they saw anything.</p>
+        <div class="devlog-state">
+          <p class="eyebrow">Playable state</p>
+          <p>Enemies that behave like people who can be fooled, in a game that saves, pauses and sounds like one product.</p>
+        </div>
+      </section>
+
     </div>
-  </section>
+
+    <section class="devlog-closing">
+      <div class="wrap">
+        <p class="eyebrow">Where it stands</p>
+        <h2 class="display devlog-closing__title">Systems finished. Story not written.</h2>
+        <p>That is the honest summary. Everything that makes a game <em>work</em> is now built and tested: booting, loading, saving, settings, menus, the heads-up display, weapons, damage, enemy intelligence, audio, performance. There are fourteen scenes, eleven kinds of enemy, and thirteen thousand lines of my own code holding it together.</p>
+        <p>What is not built is the game you would actually play. The six acts exist as empty rooms with the right names. The story text has not been written. The objective system and the player&rsquo;s own voice lines are empty files waiting for someone to write them.</p>
+        <div class="devlog-two">
+          <div>
+            <h3 class="display devlog-h3">What comes next</h3>
+            <ul class="devlog-list">
+              <li>Writing the story, act by act</li>
+              <li>Building the real levels inside those empty scenes</li>
+              <li>Objectives, so the player knows where to go</li>
+              <li>A first playable act, start to finish</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="display devlog-h3">What I learned</h3>
+            <ul class="devlog-list">
+              <li>Set the project up before putting content in it. Week 3 saved more time than any other week cost.</li>
+              <li>If a thing has to be done to seven characters, write the script instead.</li>
+              <li>Measure it. &ldquo;Looks about right&rdquo; hid a nineteen degree error for ten months.</li>
+              <li>Coming back after nine months is fine. The project waits.</li>
+            </ul>
+          </div>
+        </div>
+        <p class="devlog-colophon">Sosei &middot; built in Unity 6 &middot; development log covering August 2023 to September 2026</p>
+      </div>
+    </section>
+
+  </article>
 
   <footer class="site-footer">
     <div class="wrap site-footer__top">
