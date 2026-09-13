@@ -4,11 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Rubble Rumble Devlog — Dusk Games Interactive</title>
-  <meta name="description" content="Rubble Rumble devlog from Dusk Games Interactive." />
+  <meta name="description" content="Rubble Rumble dev log — week by week, from an empty folder to a two-player destructible arena shooter." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css?v=8" />
+  <link rel="stylesheet" href="css/style.css?v=9" />
   <link rel="icon" type="image/png" href="assets/images/favicon.png?v=2" />
   <link rel="icon" href="assets/images/favicon.ico" sizes="any" />
   <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png" />
@@ -32,26 +32,276 @@
     </div>
   </header>
 
-  <!-- ============ DEVLOG ============
-       PLACEHOLDER COPY — replace the text inside .post__body with the
-       real devlog. Keep the <h3> subheadings for section breaks. -->
-  <section class="blog">
-    <div class="wrap">
-      <article class="post">
+  <!-- ============ DEVLOG: RUBBLE RUMBLE ============ -->
+  <article class="devlog">
+
+    <header class="devlog-mast">
+      <div class="wrap">
         <a class="backlink" href="blog.html">&larr; All devlogs</a>
-        <p class="post__meta">Devlog #02 &middot; Date TBA</p>
-        <h1 class="display post__title">Rubble Rumble</h1>
-        <div class="media post__media" style="background-image:url('assets/images/games/rubble-rumble/_thumbnail.png')" role="img" aria-label="Rubble Rumble"></div>
-        <div class="post__body">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-          <h3>Lorem ipsum dolor</h3>
-          <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          <h3>Consectetur adipiscing</h3>
-          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.</p>
+        <p class="eyebrow">Dev log &middot; Solo project &middot; Updated 13 September 2026</p>
+        <h1 class="display devlog-title">Rubble Rumble</h1>
+        <p class="devlog-kicker">Top-down &middot; Multiplayer &middot; Everything breaks</p>
+        <p class="devlog-tagline">Everyone drops into the arena empty-handed. You grab whatever weapon is lying on the floor and fight while the building comes apart around you. Three weeks in, this is the honest record of how it got built: what worked, what broke, and what I had to throw away.</p>
+        <div class="devlog-stats">
+          <div class="devlog-stat"><b>19</b><span>Days</span></div>
+          <div class="devlog-stat"><b>3</b><span>Weeks</span></div>
+          <div class="devlog-stat"><b>720</b><span>3D models</span></div>
+          <div class="devlog-stat"><b>14</b><span>Weapons</span></div>
+          <div class="devlog-stat"><b>10</b><span>Power-ups</span></div>
+          <div class="devlog-stat"><b>2</b><span>Arenas</span></div>
+          <div class="devlog-stat"><b>30.8k</b><span>Lines of code</span></div>
         </div>
-      </article>
+        <nav class="devlog-nav" aria-label="Sections">
+          <a href="#week1">Week 1</a>
+          <a href="#week2">Week 2</a>
+          <a href="#week3">Week 3</a>
+          <a href="#now">Where it stands</a>
+          <a href="#next">What&rsquo;s next</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="wrap devlog-timeline">
+
+      <!-- ==================== WEEK 1 ==================== -->
+      <section class="devlog-entry" id="week1">
+        <div class="devlog-whead">
+          <div class="devlog-num">01</div>
+          <div>
+            <p class="devlog-meta">26 August &ndash; 1 September 2026</p>
+            <h2 class="display devlog-h2">An empty folder, and then a room you can shoot</h2>
+          </div>
+        </div>
+
+        <div class="devlog-plain">
+          <p class="eyebrow">The short version</p>
+          <p>Started with nothing. By the end of the week the game booted properly, showed a logo and a menu, dropped me into a room, let me pick up a gun by walking over it, and let me blow a hole in a wall.</p>
+        </div>
+
+        <h3 class="display devlog-h3">A boring first day that saves a hundred bad ones</h3>
+        <p>The first day was pure housekeeping and it was worth every hour. The project had accidentally been created inside a folder inside another folder, each with its own version history. That sounds harmless. It is not: it quietly breaks the rules that tell the system how to store big files like textures and 3D models, and it stops you from saving your work properly. I flattened it before a single line of game code existed, because untangling it later would have meant untangling it while things depended on it.</p>
+        <p>The same day I set the folder layout that everything since has followed: one folder, one level deep, and you always know exactly where a file belongs. That rule has resolved a surprising number of arguments with myself.</p>
+
+        <h3 class="display devlog-h3">The front of the game</h3>
+        <p>Splash screen, then a main menu with Play, Settings and About. It sounds cosmetic. It is actually where the architecture gets decided, because the menu is the first thing that has to load a level, and how you load levels shapes everything after it.</p>
+        <p>The answer I landed on: one scene called <strong>Bootstrap</strong> loads first and <em>never unloads</em>. It holds the things that must survive between levels, including the single audio listener, which is the game&rsquo;s one pair of ears. Everything else, the splash, the menu, each arena, loads on top of it and peels away again. Exactly one content scene at a time.</p>
+
+        <div class="devlog-box">
+          <p class="eyebrow">Why that matters later</p>
+          <p>Almost every weird bug in week two and three traced back to something that assumed it was alone in the world. The manager that thought it was the only one. The player who spawned into the wrong scene. The second pair of ears causing warnings. Deciding &ldquo;one thing always alive, one thing swapping&rdquo; early gave me a fixed place to look when the game misbehaved.</p>
+        </div>
+
+        <h3 class="display devlog-h3">A character, and guns that do not ask permission</h3>
+        <p>The placeholder character was a banana man in ten colours, holding his weapon in both hands via a bit of animation rigging. He looks ridiculous. That is fine. Placeholder art you can laugh at is placeholder art you will definitely replace.</p>
+        <p>The one real design decision here: I ripped out the inventory system entirely. In Rubble Rumble you do not open a bag and equip a gun. You walk over it, you are holding it, and whatever you had before hits the floor. No menus, no ammo crates. Every weapon arrives with its own ammunition and when it is empty it is empty. That single rule removed about four screens of user interface I would otherwise have had to design.</p>
+
+        <h3 class="display devlog-h3">First blood: 676 breakable objects</h3>
+        <p>Destruction is the whole point of the game, so it got the most scrutiny. The last piece of the week was turning a test office into a destruction playground: walls, desks and furniture, 676 objects in total, all built from small cubes so they can be carved rather than just swapped for a broken version. The first time a shotgun blast took a bite out of a wall and the rest of the wall stayed standing, the game stopped being a folder structure and started being a game.</p>
+
+        <div class="devlog-chips">
+          <div class="devlog-chip"><b>676</b><span>Breakable objects</span></div>
+          <div class="devlog-chip"><b>10</b><span>Player colours</span></div>
+          <div class="devlog-chip"><b>3</b><span>Screens: splash, menu, arena</span></div>
+          <div class="devlog-chip"><b>1</b><span>Scene always loaded</span></div>
+        </div>
+
+        <div class="devlog-box">
+          <p class="eyebrow">The thing that ate the most time</p>
+          <p class="devlog-box__big">Silence, and invisible videos.</p>
+          <p>Two bugs from the same family. The splash videos played but did not render, and the game made no sound at all. The videos needed the interface layer above them to be actually transparent rather than merely looking transparent. The silence was a guard I had written to enforce &ldquo;only one pair of ears&rdquo; that was enthusiastically disabling <em>every</em> pair of ears, including the one it was supposed to keep. A rule that is slightly too strict is worse than no rule, because it looks like it is working.</p>
+        </div>
+      </section>
+
+      <!-- ==================== WEEK 2 ==================== -->
+      <section class="devlog-entry" id="week2">
+        <div class="devlog-whead">
+          <div class="devlog-num">02</div>
+          <div>
+            <p class="devlog-meta">2 &ndash; 8 September 2026</p>
+            <h2 class="display devlog-h2">Making it feel like a game instead of a tech demo</h2>
+          </div>
+        </div>
+
+        <div class="devlog-plain">
+          <p class="eyebrow">The short version</p>
+          <p>Movement got weight, destruction finally destroyed properly, and the game grew a round: three minutes, a countdown, a timer, overtime. You could now play from start to finish rather than just walk around in a room.</p>
+        </div>
+
+        <h3 class="display devlog-h3">Movement with a dash and a jump you can aim</h3>
+        <p>Dash went in, and so did the bullet jump: fire a heavy weapon at the floor and ride the recoil. It is the kind of move players find on their own and then never stop doing, so rather than fight it I made the animation handle it properly.</p>
+        <p>That took a small but satisfying fix. The animation system had a switch called &ldquo;jumping&rdquo; that was only turned on when the character deliberately jumped, and only while they were still rising. So a player who was blasted into the air, or who walked off a ledge, or who was falling for two full seconds, was still playing the standing-around animation. I changed the meaning of that switch from &ldquo;is jumping&rdquo; to <em>&ldquo;is in the air&rdquo;</em>, which is what the animations actually wanted to know all along.</p>
+
+        <h3 class="display devlog-h3">Aim has exactly one source of truth</h3>
+        <p>Aiming was drifting because three different parts of the game each had an opinion about where you were pointing. Now there is one chain and no exceptions: your mouse position becomes a point in the world, the weapon aims at that point, and a single ray out of the barrel decides what you would hit. The laser sight and the little marker at its end read from that same answer, so what you see is what the bullet does.</p>
+        <p>I also deleted the crosshair in the middle of the screen. The end of your own laser is a better crosshair, because it sits on the actual surface you are about to hit.</p>
+
+        <div class="devlog-box">
+          <p class="eyebrow">The bug of the week</p>
+          <p class="devlog-box__big">Destruction had been running at zero strength the entire time.</p>
+          <p>Shots were making holes, but the walls only ever broke into a few big slabs. I assumed the presets were wrong and spent hours tuning them. The real cause was one number: the &ldquo;how violently does this shatter&rdquo; value was sitting at zero on every weapon, so a hit removed the material inside the blast but shed <em>no</em> loose pieces. Everything that fell was just the parts of the wall that had been cut free and lost their support.</p>
+          <p>One number, set correctly, took a wall hit from a handful of chunks to roughly 110 pieces of rubble, measured over 45 test shots. It had been half-working for a week and looking like an art problem.</p>
+        </div>
+
+        <h3 class="display devlog-h3">Two destruction rules I am not changing</h3>
+        <p><strong>Destroyed stays destroyed.</strong> The destruction system offers to recycle debris to save memory. In its vocabulary, though, &ldquo;debris&rdquo; means anything cut off a wall, including the entire top half of that wall. Turning recycling on means the arena quietly forgets it was ever hit. So it is off, and the performance budget is paid elsewhere.</p>
+        <p><strong>Destruction happens instantly, not in the background.</strong> Doing the work spread over several frames is easier on the processor, but I measured the hole appearing 14 to 20 frames after the trigger pull. That is the sort of delay you feel without being able to name. Now it costs about four milliseconds on the spot and the hole is there in the same frame as the bang.</p>
+
+        <h3 class="display devlog-h3">A round with a shape</h3>
+        <p>The match got structure: waiting, spawning, a three-two-one countdown where everyone is held still, three minutes of fighting, then overtime. There is a timer at the top of the screen, the picture darkens at the edges in the last ten seconds, and the music lifts in pitch and volume to match.</p>
+        <p>One detail here is deliberately over-engineered for a single-player prototype, and I would do it again: the round <em>never counts down</em>. It only knows which phase it is in and when that phase started, and everything else is worked out from those two facts. That is exactly what a server has to send to players over the internet later. Writing it that way in week two meant multiplayer in week three did not have to rip it out.</p>
+
+        <h3 class="display devlog-h3">Health above your head, and no reloading, ever</h3>
+        <p>Health bars moved off the corner of the screen and into the world, floating above each character, coloured to match them. In a top-down game where four people are fighting, you need to know who is nearly dead, not just yourself.</p>
+        <p>And the reload button became the <strong>throw</strong> button. Weapons never reload in this game. When it is empty, the screen says &ldquo;EMPTY, R TO THROW&rdquo; and you hurl it at somebody and go find another one. This came out of the no-inventory decision from week one, and it makes an empty gun a decision rather than a wait.</p>
+
+        <h3 class="display devlog-h3">Ninety seconds down to three</h3>
+        <p>Boring but the highest-value change of the week: every time I pressed Play in the editor it took about <strong>90 seconds</strong> to reach the arena. I measured where it went, turned off the reload step that was costing 60 of those seconds, and got a normal test start down to about <strong>three seconds</strong>.</p>
+        <p>Nothing in the game is better because of that. Everything in the game is better because of that, because I now test thirty times an hour instead of six.</p>
+
+        <div class="devlog-chips">
+          <div class="devlog-chip"><b>110</b><span>Pieces per wall hit</span></div>
+          <div class="devlog-chip"><b>0 &rarr; 4 ms</b><span>Hole appears same frame</span></div>
+          <div class="devlog-chip"><b>90s &rarr; 3s</b><span>Time to press play</span></div>
+          <div class="devlog-chip"><b>3:00</b><span>Round length</span></div>
+        </div>
+      </section>
+
+      <!-- ==================== WEEK 3 ==================== -->
+      <section class="devlog-entry" id="week3">
+        <div class="devlog-whead">
+          <div class="devlog-num">03</div>
+          <div>
+            <p class="devlog-meta">9 &ndash; 13 September 2026 &middot; In progress</p>
+            <h2 class="display devlog-h2">Build a world, break it, then wire it for two players</h2>
+          </div>
+        </div>
+
+        <div class="devlog-plain">
+          <p class="eyebrow">The short version</p>
+          <p>The biggest week by a distance. I stopped using placeholder art and generated my own, built a real arena in a forest, hunted down four genuinely nasty bugs, finished twelve gameplay features in a day, and then got two copies of the game talking to each other over a network.</p>
+        </div>
+
+        <h3 class="display devlog-h3">I stopped modelling and started writing models</h3>
+        <p>I am one person. Hand-modelling an art kit for four biomes is not happening. So the art is <em>generated by code</em>: a set of Python scripts runs inside Blender and builds every wall, crate, barrel, tree, gun and character out of small cubes, then exports them ready for the game.</p>
+        <p>Roughly 9,500 lines of those scripts now produce <strong>720 models</strong>: a modular building kit, a shared prop set with damaged and destroyed versions of everything, the 14 weapons and 10 power-ups, a full office kit, a forest fort kit, and the player. Rebuilding all of it takes about half a minute.</p>
+        <p>The real advantage is not speed, it is consistency. Everything sits on the same grid, so pieces snap together. Everything shares one 256-colour palette, so the whole game looks like one game. And when I decide the timber is too bright, I change one number and every plank in the project updates.</p>
+
+        <h4 class="devlog-h4">The character got rebuilt twice</h4>
+        <p>Banana man is gone. In his place is a generated voxel soldier: about 2,300 triangles, a proper skeleton so the existing animations still work, and colour variants driven by the same palette. I built him at three different levels of detail and looked at all three before choosing. Too coarse, and a rounded shoulder gets exactly one step and still reads as a box. Too fine, and a helmet dome turns into a staircase of fifteen tiny steps that looks corrugated. The middle one won.</p>
+
+        <div class="devlog-box">
+          <p class="eyebrow">The week&rsquo;s hardest lesson</p>
+          <p class="devlog-box__big">I built a whole custom renderer, and then deleted it.</p>
+          <p>I spent a serious chunk of two days writing a custom art style for the game: hand-written lighting with hard cel-shaded bands, outlines around objects, stylised fog, the lot. It technically worked. It did not look good, and every fix revealed two more problems.</p>
+          <p>So I removed it, put all 167 materials back on the standard renderer, and kept the removal tool so the decision is auditable rather than a mystery in six months. It cost two days and the game looks better without it. Knowing when to stop debugging something you are proud of is a skill I am still learning.</p>
+        </div>
+
+        <h3 class="display devlog-h3">Forest Fort: the first arena that looks like a place</h3>
+        <p>The main test arena is now a wooden fort in a clearing, surrounded by forest: a gate to the south, a breached wall to the west, a watchtower, fighting platforms along the north wall, sandbag bunkers, a camp, and a construction yard.</p>
+        <p>It is about <strong>1,300 pieces</strong>, and all of it is described as data rather than placed by hand, so I can regenerate the whole map after changing one rule. The arena grew four times larger mid-week and the spawn points, weapon spots and power-up ring moved with it automatically, because they are calculated from the compound size rather than typed in.</p>
+        <p>Two art lessons worth keeping. First, the forest is placed in <em>clumps</em> with gaps between them, not spread evenly, because evenly-spaced trees read as wallpaper. Second, my first clearing tiled dirt patches on a neat grid and produced a hard brown square in the middle of a forest, which is the single most &ldquo;test map&rdquo; thing a clearing can do. Now the dirt fades out with distance.</p>
+        <p>On the technical side: you can run and shoot straight through grass and ferns because they have no physical presence at all, while every wall, barrel and crate stays fully destructible. Trees are one simple invisible box around the trunk, so you cannot get stuck on a branch. The whole thing runs at about 10 milliseconds a frame with 4.5 million triangles on screen.</p>
+
+        <h3 class="display devlog-h3">Four bugs that were not what they looked like</h3>
+
+        <h4 class="devlog-h4">1. Shooting the floor launched the player 30 metres</h4>
+        <p>It looked like recoil. It was not. The character controller has a feature where if you stand on a moving platform, you move with it. It does not check what kind of object it is, only what is under your feet. When you shoot the floor, the destroyed floor piece gets recycled by being teleported ten kilometres away, and the game dutifully carried the player with it until he hit a wall. One rifle bullet at his own feet moved him 32 metres. The fix drops the platform the moment it moves more than two metres in one frame.</p>
+
+        <h4 class="devlog-h4">2. Whole floors and walls vanishing in one shot</h4>
+        <p>This one was my fault. I had rescaled the test arena to make it bigger. The destruction system had memorised the shape of every piece at the <em>old</em> size, so its model of a wall was three quarters of the actual wall, and the replacement it built after a hit was the wrong size. Strips of floor disappeared. The system now notices the size has changed and rebuilds itself.</p>
+
+        <h4 class="devlog-h4">3. Random speckled pixels that would not go away</h4>
+        <p>Stray dark dots scattered over distant walls. I ruled out the lighting, the shadows, every visual effect and every other object, one at a time, by turning them off and taking identical screenshots. The culprit was the code that gives each small cube a slightly different shade so surfaces are not flat. Once a cube is smaller than a pixel on screen, that variation becomes pure static that crawls as the camera moves. It now fades out with distance. On one test wall: 5,971 speckled pixels became zero.</p>
+
+        <h4 class="devlog-h4">4. The pit that would not kill you</h4>
+        <p>Fall into a hole in the floor and you just stood there. The invisible kill volume under the level was solid instead of a trigger, so instead of detecting the player it acted as a shelf and caught him, along with every piece of falling rubble, on an invisible ledge just below the floor. It is now a trigger, it covers the whole level plus 60 metres, and rubble is recycled by a separate volume much further down.</p>
+
+        <h3 class="display devlog-h3">Twelve features in a day</h3>
+        <p>With the bugs cleared I ran one long pass to close out the gameplay list:</p>
+        <ul class="devlog-list">
+          <li><strong>Three lives</strong>, shown as hearts, with &ldquo;NO LIVES LEFT&rdquo; when you are out. Running out ends the round.</li>
+          <li><strong>A shrinking overtime zone.</strong> When overtime starts, the safe area closes from the edge of the arena down to six metres over a minute, and standing outside it hurts.</li>
+          <li><strong>Thrown weapons are gone for good</strong> rather than becoming a pickup at your feet.</li>
+          <li><strong>Floors have health.</strong> A floor tile absorbs damage before it gives way: eight rifle bullets, four pistol shots, one shotgun blast at close range, or a single rocket.</li>
+          <li><strong>Some walls never break.</strong> The outer boundary walls and the structural columns are flagged as permanent, so the arena always has an edge and never becomes a flat field.</li>
+          <li><strong>All ten power-ups actually do something</strong>, from Giant Mode and Ghost Shell to a deployable turret, low gravity across the whole arena, and a decoy clone. Each one properly undoes itself when it expires or you die.</li>
+          <li><strong>Walking over a second weapon asks before swapping</strong> instead of silently taking your gun away. Hold C to confirm.</li>
+          <li><strong>Kill three bots and the game switches arenas</strong> with a proper fade, which is the first real level transition.</li>
+          <li>Plus outlines on all white text, landing sounds cut by 90 per cent, and a developer cheat menu for testing.</li>
+        </ul>
+
+        <h3 class="display devlog-h3">Two copies of the game, talking</h3>
+        <p>The last two days were multiplayer. This is the part of the project I have always considered the biggest risk, because you cannot bolt it onto a game that was written assuming one player.</p>
+        <p>The design rule is short: <strong>the host decides everything.</strong> Your copy of the game sends intentions, such as &ldquo;I am trying to pick this up&rdquo; or &ldquo;I am firing&rdquo;. The host runs the real code, and the result is sent to everybody. Players cannot damage each other directly, cannot destroy walls on their own copy, and cannot grant themselves a weapon, because those code paths simply do not run on a player&rsquo;s machine.</p>
+        <p>There is <em>no lobby</em>. No room codes, no server browser, no typing in an address. There is one button on the menu that says QUICK PLAY, and behind it is a single swappable connector that today points at my own machine and will later point at a real matchmaking service without the menu changing at all.</p>
+
+        <div class="devlog-box">
+          <p class="eyebrow">What was actually tested, and what was not</p>
+          <p>Two instances, run end to end, with every result read on both sides rather than assumed: joining, spawning, movement, picking up and firing weapons, ammunition, throwing, power-ups, damage and death, three lives and respawning, the overtime zone ticking damage on both screens, destruction appearing on the other machine, a late joiner catching up on both the pickups already taken and the holes already blown, bots relaying their shots, switching arena mid-match, disconnecting, reconnecting, and running a dedicated server with no player on it.</p>
+          <p><strong>Not tested:</strong> three or four players at once, real internet latency or packet loss, controllers, and audio on the joining machine. Those are next, and I am not going to claim they work until I have watched them work.</p>
+        </div>
+
+        <h3 class="display devlog-h3">A title screen worth looking at</h3>
+        <p>The week ended somewhere much lighter: rebuilding the main menu. The logo image is gone, replaced by the game&rsquo;s name set as actual type. The background is a generated gradient with a fine grain over it, built as a swappable layer so that when I have real key art it drops in as a single setting change. The menu items are a list of text with a thin accent line that arrives when you hover, rather than big rounded buttons that would look like a phone game.</p>
+
+        <div class="devlog-chips">
+          <div class="devlog-chip"><b>720</b><span>Models generated</span></div>
+          <div class="devlog-chip"><b>1,300</b><span>Pieces in the forest arena</span></div>
+          <div class="devlog-chip"><b>10 ms</b><span>Frame cost, 4.5M triangles</span></div>
+          <div class="devlog-chip"><b>2</b><span>Machines connected</span></div>
+          <div class="devlog-chip"><b>0</b><span>Errors in the final test run</span></div>
+        </div>
+      </section>
+
     </div>
-  </section>
+
+    <!-- ==================== NOW ==================== -->
+    <section class="devlog-closing" id="now">
+      <div class="wrap">
+        <p class="eyebrow">Status &middot; as of 13 September 2026</p>
+        <h2 class="display devlog-closing__title">Where it actually stands</h2>
+        <p>Everything in this list has been run and watched, not assumed.</p>
+
+        <h4 class="devlog-h4">Working</h4>
+        <ul class="devlog-status">
+          <li>Boot, splash, main menu, Quick Play into a match, and back out again.</li>
+          <li>Two players on two machines: movement, shooting, damage, death, lives, respawn.</li>
+          <li>14 weapons that are picked up off the floor, run dry, and get thrown.</li>
+          <li>10 power-ups with real effects that expire cleanly.</li>
+          <li>Destruction that persists, with floors that take damage and boundary walls that never fall.</li>
+          <li>A full round: countdown, three minutes, overtime with a shrinking zone, three lives, round end.</li>
+          <li>Two arenas and an automatic transition between them.</li>
+          <li>Bots that fight, and a developer menu for testing.</li>
+        </ul>
+
+        <h4 class="devlog-h4">Partly there</h4>
+        <ul class="devlog-status">
+          <li class="is-part">Multiplayer is proven with two machines on one computer. Real internet conditions are untested.</li>
+          <li class="is-part">The bots are functional but not tuned. They are target practice, not opponents.</li>
+          <li class="is-part">Art is consistent and generated, but it is the first pass, not the final look.</li>
+        </ul>
+
+        <h4 class="devlog-h4">Not started</h4>
+        <ul class="devlog-status">
+          <li class="is-no">Game modes. There is one fight, not Team Deathmatch or King of the Crater yet.</li>
+          <li class="is-no">Online matchmaking. The socket is built, nothing is plugged into it.</li>
+          <li class="is-no">Steam integration, menus for it, or anything resembling a store page.</li>
+        </ul>
+
+        <h3 class="display devlog-h3" id="next">What week four looks like</h3>
+        <ul class="devlog-list">
+          <li>Three and four players at once, which is where the assumptions I have not noticed yet will surface.</li>
+          <li>Real network conditions: delay, packet loss, and a second machine rather than a second window.</li>
+          <li>The first proper game mode with scoring and a best-of-five match.</li>
+          <li>Making the bots worth fighting.</li>
+          <li>The first arena built to be fun rather than built to be tested.</li>
+        </ul>
+
+        <p class="devlog-colophon">Rubble Rumble &middot; solo development log &middot; built in Unity with HDRP. Dates are the days the work actually landed. Numbers in this log come from measurements taken in the editor, not estimates.</p>
+      </div>
+    </section>
+
+  </article>
 
   <footer class="site-footer">
     <div class="wrap site-footer__top">

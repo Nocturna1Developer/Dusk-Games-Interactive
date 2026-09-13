@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sosei Devlog — Dusk Games Interactive</title>
-  <meta name="description" content="A week-by-week development log for Sosei, a story-driven first-person shooter built solo in Unity." />
+  <title>Project Sosei Devlog — Dusk Games Interactive</title>
+  <meta name="description" content="A week-by-week development log for Project Sosei, a story-driven first-person shooter built solo in Unity." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css?v=8" />
+  <link rel="stylesheet" href="css/style.css?v=9" />
   <link rel="icon" type="image/png" href="assets/images/favicon.png?v=2" />
   <link rel="icon" href="assets/images/favicon.ico" sizes="any" />
   <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png" />
@@ -39,7 +39,7 @@
       <div class="wrap">
         <a class="backlink" href="blog.html">&larr; All devlogs</a>
         <p class="eyebrow">Development log &middot; solo project &middot; Unity</p>
-        <h1 class="display devlog-title">Sosei</h1>
+        <h1 class="display devlog-title">Project Sosei</h1>
         <p class="devlog-tagline">A realistic dystopian first-person shooter about morality, discovery and hope. Built by one person, in the evenings, over three years.</p>
         <div class="devlog-stats">
           <div class="devlog-stat"><b>3</b><span>calendar years</span></div>
@@ -53,7 +53,7 @@
 
     <section class="devlog-intro">
       <div class="wrap">
-        <p><strong>Sosei</strong> is a single-player shooter set in a quiet, ruined version of our world. It is told in six acts that move you from a rural gas station, out into fog, through an abandoned hospital, into a dead city, and finally home.</p>
+        <p><strong>Project Sosei</strong> is a single-player shooter set in a quiet, ruined version of our world. It is told in six acts that move you from a rural gas station, out into fog, through an abandoned hospital, into a dead city, and finally home.</p>
         <p>This log covers every week of work from the first day to now. That is three calendar years on paper, but only about <strong>nine weeks</strong> of actual development spread across them. I have left the empty stretches in, with the real dates, because the gaps are part of the honest story of making something alone.</p>
       </div>
     </section>
@@ -70,7 +70,7 @@
           </div>
         </div>
         <div class="devlog-tags"><span class="devlog-tag">First build</span><span class="devlog-tag">Enemy AI</span></div>
-        <p>The project existed by the end of the first day. I made a Unity project, dropped in a first-person player from an asset pack, and started wiring up an enemy that could see me.</p>
+        <p>The project existed by the end of the first day. I made a Unity project, put together a first-person player, and started wiring up an enemy that could see me.</p>
         <p>How planned was any of this? The commits are named &ldquo;more commits&rdquo;, &ldquo;organizing&rdquo; and &ldquo;added start&rdquo;. It was pure curiosity. I wanted to know whether a person on their own could get an enemy to notice them and react.</p>
         <div class="devlog-state">
           <p class="eyebrow">Playable state</p>
@@ -114,8 +114,8 @@
         </div>
         <div class="devlog-tags"><span class="devlog-tag">Project setup</span><span class="devlog-tag">Environment</span><span class="devlog-tag">Gunplay</span></div>
         <p>The busiest week in the project&rsquo;s history, and almost none of it was gameplay.</p>
-        <p>First the repository was rebuilt: one folder for my own code, one for bought asset packs, and large file storage switched on so that hundred-megabyte models and audio files do not destroy the project history. Boring, and the single most valuable week of work in the whole log.</p>
-        <p>Then the world went in. A forest environment pack, skyboxes, audio, animation sets. A lot of that week was spent on one specific thing: the fog. There is a commit literally named <em>perfected the foggy effect for now</em>. The look of the game was decided that week and has not changed since.</p>
+        <p>First the repository was rebuilt: a clear folder structure, and large file storage switched on so that hundred-megabyte models and audio files do not destroy the project history. Boring, and the single most valuable week of work in the whole log.</p>
+        <p>Then the world went in. A forest environment, skyboxes, audio, animation sets. A lot of that week was spent on one specific thing: the fog. There is a commit literally named <em>perfected the foggy effect for now</em>. The look of the game was decided that week and has not changed since.</p>
         <p>At the end of the week I turned to the guns, and the commit names get noticeably happier: &ldquo;updating gunplay&rdquo;, &ldquo;working on fixing gunplay&rdquo;, &ldquo;massive progress on ai and gun gameplay&rdquo;.</p>
         <div class="devlog-plain">
           <p class="eyebrow">In plain English</p>
@@ -228,7 +228,7 @@
           <li><strong>A startup scene called Bootstrap.</strong> It loads once when the game launches and is never unloaded. It holds the things that have to survive between levels: the thing that loads scenes, the game manager, the dialogue manager, settings. Every level now loads on top of it, one at a time. Before this, each level carried its own copy of all of that, and the copies quietly disagreed with each other.</li>
           <li><strong>Every level cleaned out</strong> and organised the same way, with the same named groups in the same order, so I can find anything in any level without thinking.</li>
           <li><strong>Tools that configure the enemies for me.</strong> Seven bandits, each with dozens of settings, is a guarantee that one of them is subtly wrong. Now a script sets all of them, and when something needs to change I re-run the script instead of clicking through seven characters.</li>
-          <li><strong>The bought menu kit was thrown out</strong> and rebuilt with Unity&rsquo;s own UI system, driven by a single theme file that decides every font and colour in the game.</li>
+          <li><strong>The old menu system was thrown out</strong> and rebuilt with Unity&rsquo;s own UI system, driven by a single theme file that decides every font and colour in the game.</li>
           <li><strong>All sound routed through a proper mixer</strong>, so the volume sliders in the settings menu actually control everything, including sounds that other packages create while the game is running.</li>
         </ul>
         <div class="devlog-plain">
@@ -265,10 +265,9 @@
 
         <h3 class="display devlog-h3">Saving the game</h3>
         <p>Written from scratch this week. One save slot, written in a way that cannot leave you with half a file, with a backup kept alongside it, and a corrupted save quarantined instead of crashing the game. It remembers the level, where you are standing, your health and stamina, every item in your inventory, which weapon you had out, and the story flags of what you have already done.</p>
-        <p>It replaced a paid save asset that had been sitting in the project for a year without ever being used.</p>
 
         <h3 class="display devlog-h3">Enemies that think</h3>
-        <p>This was the heart of the week. The enemies used a bought AI package, and that package is good at the mechanical parts: seeing, pathfinding, shooting, taking cover. What it does not give you is a person. So I built a layer on top of it.</p>
+        <p>This was the heart of the week. The enemies already handled the mechanical parts well enough: seeing, pathfinding, shooting, taking cover. What none of that gives you is a person. So I built a layer on top of it.</p>
         <div class="devlog-panel">
           <h3 class="display devlog-h3">What the bandits do now</h3>
           <dl class="devlog-beh">
@@ -320,7 +319,7 @@
             </ul>
           </div>
         </div>
-        <p class="devlog-colophon">Sosei &middot; built in Unity 6 &middot; development log covering August 2023 to September 2026</p>
+        <p class="devlog-colophon">Project Sosei &middot; built in Unity 6 &middot; development log covering August 2023 to September 2026</p>
       </div>
     </section>
 
