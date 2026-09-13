@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css?v=9" />
+  <link rel="stylesheet" href="css/style.css?v=11" />
   <link rel="icon" type="image/png" href="assets/images/favicon.png?v=2" />
   <link rel="icon" href="assets/images/favicon.ico" sizes="any" />
   <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png" />
@@ -33,7 +33,7 @@
   </header>
 
   <!-- ============ DEVLOG: RUBBLE RUMBLE ============ -->
-  <article class="devlog">
+  <article class="devlog devlog--rubble">
 
     <header class="devlog-mast">
       <div class="wrap">
@@ -86,7 +86,7 @@
         <p>Splash screen, then a main menu with Play, Settings and About. It sounds cosmetic. It is actually where the architecture gets decided, because the menu is the first thing that has to load a level, and how you load levels shapes everything after it.</p>
         <p>The answer I landed on: one scene called <strong>Bootstrap</strong> loads first and <em>never unloads</em>. It holds the things that must survive between levels, including the single audio listener, which is the game&rsquo;s one pair of ears. Everything else, the splash, the menu, each arena, loads on top of it and peels away again. Exactly one content scene at a time.</p>
 
-        <div class="devlog-box">
+        <div class="devlog-box devlog-box--info">
           <p class="eyebrow">Why that matters later</p>
           <p>Almost every weird bug in week two and three traced back to something that assumed it was alone in the world. The manager that thought it was the only one. The player who spawned into the wrong scene. The second pair of ears causing warnings. Deciding &ldquo;one thing always alive, one thing swapping&rdquo; early gave me a fixed place to look when the game misbehaved.</p>
         </div>
@@ -105,7 +105,7 @@
           <div class="devlog-chip"><b>1</b><span>Scene always loaded</span></div>
         </div>
 
-        <div class="devlog-box">
+        <div class="devlog-box devlog-box--warn">
           <p class="eyebrow">The thing that ate the most time</p>
           <p class="devlog-box__big">Silence, and invisible videos.</p>
           <p>Two bugs from the same family. The splash videos played but did not render, and the game made no sound at all. The videos needed the interface layer above them to be actually transparent rather than merely looking transparent. The silence was a guard I had written to enforce &ldquo;only one pair of ears&rdquo; that was enthusiastically disabling <em>every</em> pair of ears, including the one it was supposed to keep. A rule that is slightly too strict is worse than no rule, because it looks like it is working.</p>
@@ -135,7 +135,7 @@
         <p>Aiming was drifting because three different parts of the game each had an opinion about where you were pointing. Now there is one chain and no exceptions: your mouse position becomes a point in the world, the weapon aims at that point, and a single ray out of the barrel decides what you would hit. The laser sight and the little marker at its end read from that same answer, so what you see is what the bullet does.</p>
         <p>I also deleted the crosshair in the middle of the screen. The end of your own laser is a better crosshair, because it sits on the actual surface you are about to hit.</p>
 
-        <div class="devlog-box">
+        <div class="devlog-box devlog-box--stop">
           <p class="eyebrow">The bug of the week</p>
           <p class="devlog-box__big">Destruction had been running at zero strength the entire time.</p>
           <p>Shots were making holes, but the walls only ever broke into a few big slabs. I assumed the presets were wrong and spent hours tuning them. The real cause was one number: the &ldquo;how violently does this shatter&rdquo; value was sitting at zero on every weapon, so a hit removed the material inside the blast but shed <em>no</em> loose pieces. Everything that fell was just the parts of the wall that had been cut free and lost their support.</p>
@@ -189,7 +189,7 @@
         <h4 class="devlog-h4">The character got rebuilt twice</h4>
         <p>Banana man is gone. In his place is a generated voxel soldier: about 2,300 triangles, a proper skeleton so the existing animations still work, and colour variants driven by the same palette. I built him at three different levels of detail and looked at all three before choosing. Too coarse, and a rounded shoulder gets exactly one step and still reads as a box. Too fine, and a helmet dome turns into a staircase of fifteen tiny steps that looks corrugated. The middle one won.</p>
 
-        <div class="devlog-box">
+        <div class="devlog-box devlog-box--stop">
           <p class="eyebrow">The week&rsquo;s hardest lesson</p>
           <p class="devlog-box__big">I built a whole custom renderer, and then deleted it.</p>
           <p>I spent a serious chunk of two days writing a custom art style for the game: hand-written lighting with hard cel-shaded bands, outlines around objects, stylised fog, the lot. It technically worked. It did not look good, and every fix revealed two more problems.</p>
@@ -235,7 +235,7 @@
         <p>The design rule is short: <strong>the host decides everything.</strong> Your copy of the game sends intentions, such as &ldquo;I am trying to pick this up&rdquo; or &ldquo;I am firing&rdquo;. The host runs the real code, and the result is sent to everybody. Players cannot damage each other directly, cannot destroy walls on their own copy, and cannot grant themselves a weapon, because those code paths simply do not run on a player&rsquo;s machine.</p>
         <p>There is <em>no lobby</em>. No room codes, no server browser, no typing in an address. There is one button on the menu that says QUICK PLAY, and behind it is a single swappable connector that today points at my own machine and will later point at a real matchmaking service without the menu changing at all.</p>
 
-        <div class="devlog-box">
+        <div class="devlog-box devlog-box--info">
           <p class="eyebrow">What was actually tested, and what was not</p>
           <p>Two instances, run end to end, with every result read on both sides rather than assumed: joining, spawning, movement, picking up and firing weapons, ammunition, throwing, power-ups, damage and death, three lives and respawning, the overtime zone ticking damage on both screens, destruction appearing on the other machine, a late joiner catching up on both the pickups already taken and the holes already blown, bots relaying their shots, switching arena mid-match, disconnecting, reconnecting, and running a dedicated server with no player on it.</p>
           <p><strong>Not tested:</strong> three or four players at once, real internet latency or packet loss, controllers, and audio on the joining machine. Those are next, and I am not going to claim they work until I have watched them work.</p>

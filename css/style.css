@@ -1270,7 +1270,7 @@ body:has(.hero--video) .site-header.is-scrolled {
   display: block;
   font-family: var(--font-display);
   font-size: 2.1rem; line-height: 1;
-  color: var(--color-accent);
+  color: var(--dl-accent);
   font-variant-numeric: tabular-nums;
 }
 .devlog-stat span {
@@ -1294,7 +1294,7 @@ body:has(.hero--video) .site-header.is-scrolled {
 .devlog-entry::before {
   content: ""; position: absolute; left: -5px; top: .8rem;
   width: 9px; height: 9px; border-radius: 50%;
-  background: var(--color-accent);
+  background: var(--dl-accent);
   box-shadow: 0 0 0 4px var(--color-background);
 }
 .devlog-gap { border-left-style: dashed; }
@@ -1315,7 +1315,7 @@ body:has(.hero--video) .site-header.is-scrolled {
 .devlog-num {
   font-family: var(--font-display);
   font-size: 3.1rem; line-height: .8;
-  color: var(--color-accent);
+  color: var(--dl-accent);
   font-variant-numeric: tabular-nums; flex: none; padding-top: .15rem;
 }
 .devlog-meta {
@@ -1344,16 +1344,16 @@ body:has(.hero--video) .site-header.is-scrolled {
 
 .devlog-list { margin: 0 0 1rem; padding-left: 1.15rem; max-width: 64ch; color: var(--color-text-secondary); }
 .devlog-list li { margin-bottom: .6rem; }
-.devlog-list li::marker { color: var(--color-accent); }
+.devlog-list li::marker { color: var(--dl-accent); }
 .devlog-list strong { color: var(--color-text-primary); font-weight: 600; }
 
 /* "in plain English" aside */
 .devlog-plain {
   background: var(--color-wash);
-  border-left: 2px solid var(--color-accent);
+  border-left: 2px solid var(--dl-accent);
   padding: .95rem 1.15rem; margin: 1.5rem 0;
 }
-.devlog-plain .eyebrow { color: var(--color-accent); margin: 0 0 .3rem; }
+.devlog-plain .eyebrow { color: var(--dl-accent); margin: 0 0 .3rem; }
 .devlog-plain p { margin: 0; color: var(--color-text-primary); max-width: 60ch; }
 
 /* per-week playable state */
@@ -1413,7 +1413,7 @@ body:has(.hero--video) .site-header.is-scrolled {
 /* ---- devlog: additional long-form components ---- */
 .devlog-kicker {
   font-size: .74rem; font-weight: 600; letter-spacing: .18em;
-  text-transform: uppercase; color: var(--color-accent);
+  text-transform: uppercase; color: var(--dl-accent);
   margin: 0 0 1.2rem;
 }
 .devlog-nav { display: flex; flex-wrap: wrap; gap: .5rem; margin: 1.8rem 0 0; }
@@ -1435,11 +1435,11 @@ body:has(.hero--video) .site-header.is-scrolled {
 .devlog-box {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
-  border-left: 2px solid var(--color-accent);
+  border-left: 2px solid var(--dl-accent);
   border-radius: var(--radius);
   padding: 1.2rem 1.4rem; margin: 1.7rem 0;
 }
-.devlog-box .eyebrow { margin: 0 0 .6rem; color: var(--color-accent); }
+.devlog-box .eyebrow { margin: 0 0 .6rem; color: var(--dl-accent); }
 .devlog-box p { color: var(--color-text-secondary); max-width: 62ch; margin: 0 0 .9rem; }
 .devlog-box p:last-child { margin-bottom: 0; }
 .devlog-box__big {
@@ -1461,7 +1461,7 @@ body:has(.hero--video) .site-header.is-scrolled {
 .devlog-chip { background: var(--color-background); padding: .9rem 1rem; }
 .devlog-chip b {
   display: block; font-family: var(--font-display);
-  font-size: 1.3rem; line-height: 1; color: var(--color-accent);
+  font-size: 1.3rem; line-height: 1; color: var(--dl-accent);
   font-variant-numeric: tabular-nums;
 }
 .devlog-chip span {
@@ -1477,10 +1477,72 @@ body:has(.hero--video) .site-header.is-scrolled {
 }
 .devlog-status li::before {
   content: ""; position: absolute; left: 0; top: .62em;
-  width: 14px; height: 3px; background: var(--color-accent);
+  width: 14px; height: 3px; background: var(--dl-accent);
 }
-.devlog-status li.is-part::before { width: 7px; background: var(--color-accent); opacity: .75; }
+.devlog-status li.is-part::before { width: 7px; background: var(--dl-accent); opacity: .75; }
 .devlog-status li.is-no::before   { width: 14px; height: 1px; background: var(--color-text-muted); }
 
 .devlog-closing .devlog-h3 { margin-top: 2.4rem; }
 .devlog-closing .devlog-list { color: var(--color-text-secondary); }
+
+/* =========================================================
+   DEVLOG PER-GAME PALETTES
+   Studio chrome stays Obsidian-neutral; each devlog carries its
+   own game's colours, which is what the neutral palette is for.
+   Colours are taken from each game's original log.
+   ========================================================= */
+.devlog {
+  --dl-accent:     var(--color-accent);       /* headline accent          */
+  --dl-accent-rgb: var(--color-accent-rgb);
+  --dl-ok:         var(--color-accent);       /* status: working          */
+  --dl-warn:       var(--color-accent);       /* callout: time sink       */
+  --dl-stop:       var(--color-accent);       /* callout: bug / hard note */
+  --dl-info:       var(--color-accent);       /* callout: context         */
+}
+
+/* Rubble Rumble — blue, green, amber, stop */
+.devlog--rubble {
+  --dl-accent:     #5B95E8;
+  --dl-accent-rgb: 91 149 232;
+  --dl-ok:         #8FD744;
+  --dl-warn:       #E5A13B;
+  --dl-stop:       #E8695F;
+  --dl-info:       #5B95E8;
+}
+
+/* Project Sosei — ember and steel */
+.devlog--sosei {
+  --dl-accent:     #DD8F3F;
+  --dl-accent-rgb: 221 143 63;
+  --dl-ok:         #DD8F3F;
+  --dl-warn:       #E8A15A;
+  --dl-stop:       #E8A15A;
+  --dl-info:       #7FA0BA;
+}
+
+/* inline emphasis picks up the game's accent, as in the source logs */
+.devlog-entry em, .devlog-closing em, .devlog-box em { color: var(--dl-accent); font-style: normal; font-weight: 600; }
+
+/* callout variants */
+.devlog-box--info { border-left-color: var(--dl-info); }
+.devlog-box--info .eyebrow { color: var(--dl-info); }
+.devlog-box--warn { border-left-color: var(--dl-warn); }
+.devlog-box--warn .eyebrow { color: var(--dl-warn); }
+.devlog-box--stop { border-left-color: var(--dl-stop); }
+.devlog-box--stop .eyebrow { color: var(--dl-stop); }
+
+/* "the short version" summary takes the positive colour */
+.devlog-plain { border-left-color: var(--dl-ok); }
+.devlog-plain .eyebrow { color: var(--dl-ok); }
+
+/* status list regains its three colours */
+.devlog-status li::before          { background: var(--dl-ok); }
+.devlog-status li.is-part::before  { background: var(--dl-warn); opacity: 1; width: 14px; }
+.devlog-status li.is-no::before    { background: var(--color-text-muted); height: 3px; }
+
+/* ---- masthead breathing room ---- */
+.devlog-title { margin-bottom: 1.45rem; }
+.devlog-kicker { margin: 0 0 2.5rem; color: var(--dl-accent); }
+.devlog-mast .eyebrow { margin-bottom: 1rem; }
+.devlog-tagline { margin-bottom: 3rem; }
+.devlog-stats { padding-top: 1.9rem; }
