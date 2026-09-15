@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css?v=11" />
+  <link rel="stylesheet" href="css/style.css?v=12" />
   <link rel="icon" type="image/png" href="assets/images/favicon.png?v=2" />
   <link rel="icon" href="assets/images/favicon.ico" sizes="any" />
   <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png" />
@@ -41,7 +41,7 @@
         <p class="eyebrow">Dev log &middot; Solo project &middot; Updated 13 September 2026</p>
         <h1 class="display devlog-title">Rubble Rumble</h1>
         <p class="devlog-kicker">Top-down &middot; Multiplayer &middot; Everything breaks</p>
-        <p class="devlog-tagline">Everyone drops into the arena empty-handed. You grab whatever weapon is lying on the floor and fight while the building comes apart around you. Three weeks in, this is the honest record of how it got built: what worked, what broke, and what I had to throw away.</p>
+        <p class="devlog-tagline">Everyone drops into the arena empty-handed. You grab whatever weapon is lying on the floor and fight while the building comes apart around you. Three weeks in, here is how it got built.</p>
         <div class="devlog-stats">
           <div class="devlog-stat"><b>19</b><span>Days</span></div>
           <div class="devlog-stat"><b>3</b><span>Weeks</span></div>
@@ -156,7 +156,7 @@
 
         <h3 class="display devlog-h3">Ninety seconds down to three</h3>
         <p>Boring but the highest-value change of the week: every time I pressed Play in the editor it took about <strong>90 seconds</strong> to reach the arena. I measured where it went, turned off the reload step that was costing 60 of those seconds, and got a normal test start down to about <strong>three seconds</strong>.</p>
-        <p>Nothing in the game is better because of that. Everything in the game is better because of that, because I now test thirty times an hour instead of six.</p>
+        <p>Nothing in the game changed. But I now test thirty times an hour instead of six.</p>
 
         <div class="devlog-chips">
           <div class="devlog-chip"><b>110</b><span>Pieces per wall hit</span></div>
@@ -193,7 +193,7 @@
           <p class="eyebrow">The week&rsquo;s hardest lesson</p>
           <p class="devlog-box__big">I built a whole custom renderer, and then deleted it.</p>
           <p>I spent a serious chunk of two days writing a custom art style for the game: hand-written lighting with hard cel-shaded bands, outlines around objects, stylised fog, the lot. It technically worked. It did not look good, and every fix revealed two more problems.</p>
-          <p>So I removed it, put all 167 materials back on the standard renderer, and kept the removal tool so the decision is auditable rather than a mystery in six months. It cost two days and the game looks better without it. Knowing when to stop debugging something you are proud of is a skill I am still learning.</p>
+          <p>So I removed it, put all 167 materials back on the standard renderer, and kept the removal tool so the decision is auditable rather than a mystery in six months. It cost two days and the game looks better without it.</p>
         </div>
 
         <h3 class="display devlog-h3">Forest Fort: the first arena that looks like a place</h3>
@@ -237,8 +237,8 @@
 
         <div class="devlog-box devlog-box--info">
           <p class="eyebrow">What was actually tested, and what was not</p>
-          <p>Two instances, run end to end, with every result read on both sides rather than assumed: joining, spawning, movement, picking up and firing weapons, ammunition, throwing, power-ups, damage and death, three lives and respawning, the overtime zone ticking damage on both screens, destruction appearing on the other machine, a late joiner catching up on both the pickups already taken and the holes already blown, bots relaying their shots, switching arena mid-match, disconnecting, reconnecting, and running a dedicated server with no player on it.</p>
-          <p><strong>Not tested:</strong> three or four players at once, real internet latency or packet loss, controllers, and audio on the joining machine. Those are next, and I am not going to claim they work until I have watched them work.</p>
+          <p>Two instances, run end to end, with every result checked on both sides: joining, spawning, movement, picking up and firing weapons, ammunition, throwing, power-ups, damage and death, three lives and respawning, the overtime zone ticking damage on both screens, destruction appearing on the other machine, a late joiner catching up on both the pickups already taken and the holes already blown, bots relaying their shots, switching arena mid-match, disconnecting, reconnecting, and running a dedicated server with no player on it.</p>
+          <p><strong>Not tested:</strong> three or four players at once, real internet latency or packet loss, controllers, and audio on the joining machine. Those are next.</p>
         </div>
 
         <h3 class="display devlog-h3">A title screen worth looking at</h3>
@@ -260,7 +260,7 @@
       <div class="wrap">
         <p class="eyebrow">Status &middot; as of 13 September 2026</p>
         <h2 class="display devlog-closing__title">Where it actually stands</h2>
-        <p>Everything in this list has been run and watched, not assumed.</p>
+        <p>Everything in this list has been run.</p>
 
         <h4 class="devlog-h4">Working</h4>
         <ul class="devlog-status">
@@ -297,7 +297,7 @@
           <li>The first arena built to be fun rather than built to be tested.</li>
         </ul>
 
-        <p class="devlog-colophon">Rubble Rumble &middot; solo development log &middot; built in Unity with HDRP. Dates are the days the work actually landed. Numbers in this log come from measurements taken in the editor, not estimates.</p>
+        <p class="devlog-colophon">Rubble Rumble &middot; built in Unity with HDRP</p>
       </div>
     </section>
 
