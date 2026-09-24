@@ -1677,6 +1677,57 @@ body:not(:has(.hero)) .site-header { border-bottom-color: var(--line); }
 .site-footer__top { align-items: start; }
 
 /* =========================================================
+   21b POLISH: CATALOGUE + GAME DETAIL
+   ========================================================= */
+
+/* ---- catalogue ----
+   Key art is square; a 16:10 feature tile was cropping the middle out
+   of it. Bias the crop upward so titles and characters survive. */
+.catalogue--feature > *:nth-child(7n+1) .game-card__media::before,
+.catalogue--feature > *:nth-child(7n+4) .game-card__media::before {
+  background-position: center 34%;
+}
+
+/* A tile that is entirely a link needs to say so. The cue rides in
+   with the description so nothing moves until you are on the card. */
+.game-card__cue {
+  display: inline-flex; align-items: center; gap: .45rem;
+  margin-top: .85rem;
+  font-size: .64rem; font-weight: 600; letter-spacing: .2em;
+  text-transform: uppercase; color: var(--gold-400);
+  opacity: 0; transform: translateY(6px);
+  transition: opacity .3s var(--ease), transform .3s var(--ease-out);
+}
+.game-card:hover .game-card__cue { opacity: 1; transform: none; }
+.game-card:focus-within .game-card__cue { opacity: 1; transform: none; }
+
+/* Dark key art (Project Sosei) left its title sitting on near-black.
+   A deeper bed under the metadata keeps every tile legible whatever
+   the artwork does. */
+.game-card__media::after {
+  background: linear-gradient(180deg,
+    transparent 42%,
+    rgb(var(--scrim-rgb) / .35) 62%,
+    rgb(var(--scrim-rgb) / .78) 84%,
+    rgb(var(--scrim-rgb) / .93) 100%);
+}
+
+/* ---- game detail ----
+   Square art in a wide hero was cropping through the middle of the
+   frame and clipping key-art banners. */
+.game-hero__bg { background-position: center 32%; }
+.game-hero { min-height: clamp(460px, 66vh, 720px); }
+
+/* A game with only key art has no trailer and no gallery, so the hero
+   is the page. Let it run full height rather than look unfinished. */
+.game-hero--solo { min-height: calc(100svh - var(--header-h, 76px)); }
+.game-hero--solo .game-hero__bg { background-position: center 38%; }
+
+/* the spec rail reads as a plate under the hero, not a stray table */
+.specs { box-shadow: 0 24px 60px -30px rgb(var(--shadow-rgb) / .9); }
+.spec dd { font-size: 1rem; }
+
+/* =========================================================
    22 RESPONSIVE OVERRIDES (must stay last)
    Sections 20-21 were appended after section 19, so their
    single-column rules were being overridden at small widths.
@@ -1686,6 +1737,9 @@ body:not(:has(.hero)) .site-header { border-bottom-color: var(--line); }
   .quotes { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 860px) {
+  /* there is no hover on touch, so the card's affordances must be
+     visible at rest or they never appear at all */
+  .game-card__cue { opacity: 1; transform: none; }
   .quotes { grid-template-columns: 1fr; gap: 2rem; }
   .quote--lead { grid-column: auto; padding-left: 1.6rem; }
   .quote--lead .quote__text { max-width: none; font-size: 1.2rem; }

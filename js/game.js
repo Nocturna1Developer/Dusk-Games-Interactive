@@ -37,11 +37,16 @@
   // ---- split the genre string into individual spec chips ----
   var parts = (game.genre || '').split('·').map(function (p) { return p.trim(); }).filter(Boolean);
   var status = '';
-  if (parts.length && /release|tba|coming|out now/i.test(parts[0])) status = parts.shift();
+  if (parts.length && /release|tba|coming|out now/i.test(parts[0])) {
+    status = parts.shift().replace(/^release\s*date\s*/i, '').trim() || 'TBA';
+  }
 
   // ================= HERO =================
+  var hasTrailer = !!youtubeEmbed(game.youtube);
+  var hasShots = !!(game.screenshots && game.screenshots.filter(Boolean).length);
+
   var hero = document.createElement('section');
-  hero.className = 'game-hero';
+  hero.className = 'game-hero' + (!hasTrailer && !hasShots ? ' game-hero--solo' : '');
   hero.innerHTML =
     '<div class="game-hero__bg" id="game-hero-bg" aria-hidden="true"></div>' +
     '<div class="wrap game-hero__inner">' +
@@ -56,15 +61,14 @@
   resolveCover(hero.querySelector('#game-hero-bg'), game);
 
   var actions = hero.querySelector('.game-hero__actions');
-  if (game.itch) {
-    actions.innerHTML += '<a class="btn btn--primary" href="' + esc(game.itch) + '" target="_blank" rel="noopener"><span>Play on itch.io</span></a>';
-  }
-  if (game.youtube) {
-    actions.innerHTML += '<a class="btn btn--ghost" href="#trailer"><span>Watch trailer</span></a>';
-  }
-  if (DEVLOGS[game.slug]) {
-    actions.innerHTML += '<a class="btn btn--ghost" href="' + DEVLOGS[game.slug] + '"><span>Read the devlog</span></a>';
-  }
+  var acts = [];
+  if (game.itch) acts.push(['Play on itch.io', esc(game.itch), ' target="_blank" rel="noopener"']);
+  if (game.youtube) acts.push(['Watch trailer', '#trailer', '']);
+  if (DEVLOGS[game.slug]) acts.push(['Read the devlog', DEVLOGS[game.slug], '']);
+  acts.forEach(function (a, i) {
+    actions.innerHTML += '<a class="btn ' + (i === 0 ? 'btn--primary' : 'btn--ghost') +
+      '" href="' + a[1] + '"' + a[2] + '><span>' + a[0] + '</span></a>';
+  });
   if (!actions.children.length) actions.remove();
 
   // ================= SPECS =================

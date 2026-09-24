@@ -132,6 +132,12 @@ function buildGameCard(game) {
     body.appendChild(desc);
   }
 
+  var cue = document.createElement('span');
+  cue.className = 'game-card__cue';
+  cue.setAttribute('aria-hidden', 'true');
+  cue.textContent = 'View game →';
+  body.appendChild(cue);
+
   media.appendChild(body);
 
   var link = document.createElement('a');
