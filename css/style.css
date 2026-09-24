@@ -1580,3 +1580,117 @@ body:not(:has(.hero)) .site-header { border-bottom-color: var(--line); }
 .genre span { font-size: clamp(.95rem, 1.6vw, 1.3rem); }
 .moon-divider { margin-bottom: clamp(1.4rem, 2.5vw, 2rem); }
 .genres + *, .section--tight:has(.genres) { padding-bottom: 0; }
+
+/* =========================================================
+   21 POLISH: QUOTES + FOOTER
+   ========================================================= */
+
+/* ---- quotes ----
+   These were set in condensed uppercase display type, which made six
+   genuine player comments read as six marketing slogans. Players don't
+   shout in Anton. Back to body type, natural case, generous leading —
+   and one lead quote so the block has a hierarchy instead of being a
+   3x2 grid of identical panels. */
+.quotes {
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(2rem, 3.4vw, 3.2rem) clamp(1.8rem, 3vw, 2.8rem);
+}
+.quote {
+  position: relative;
+  padding: 0 0 0 1.6rem;
+  border-left: 1px solid var(--line);
+}
+.quote:hover { border-left-color: var(--gold-400); }
+
+.quote__text {
+  font-family: var(--font-body);
+  text-transform: none;
+  font-size: 1.06rem;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0;
+  color: var(--text-0);
+  margin: 0 0 1.1rem;
+  text-wrap: pretty;
+}
+.quote__by {
+  display: block;
+  font-size: .72rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--text-2);
+  line-height: 1.6;
+}
+.quote__by b {
+  display: block;
+  font-family: var(--font-display);
+  font-size: .92rem;
+  letter-spacing: .08em;
+  color: var(--gold-400);
+  font-weight: 400;
+  margin-bottom: .3rem;
+}
+
+/* the lead quote carries the block */
+/* full width: with six quotes a 2-span lead strands the sixth on its
+   own row. Running the lead across all three columns gives 1 / 3 / 2. */
+.quote--lead {
+  grid-column: 1 / -1;
+  padding-left: 2.2rem;
+  padding-block: .4rem;
+  border-left-width: 2px;
+  border-left-color: rgb(var(--gold-rgb) / .55);
+}
+.quote--lead .quote__text { max-width: 30ch; }
+.quote--lead .quote__text { font-size: clamp(1.3rem, 2.1vw, 1.85rem); line-height: 1.35; color: var(--text-0); }
+/* an open quote mark, set as a mark rather than punctuation */
+.quote--lead::before {
+  content: "\201C";
+  position: absolute; left: 1.4rem; top: -.55em;
+  font-family: var(--font-display);
+  font-size: 4.5rem; line-height: 1;
+  color: rgb(var(--gold-rgb) / .18);
+  pointer-events: none;
+}
+.quote--lead .quote__text { position: relative; }
+
+/* ---- footer ----
+   Two faults: the brand column's heading was not picked up by the
+   .footer-col rule so it rendered in a different face and size from
+   "Explore" and "Press & contact"; and the studio line repeated the
+   statement directly above it. */
+.site-footer h3 {
+  font-size: var(--step--1); font-weight: 600; letter-spacing: .22em;
+  text-transform: uppercase; color: var(--text-2); margin: 0 0 1.1rem;
+}
+.footer-statement img { height: clamp(54px, 7vw, 82px); margin-bottom: 1.8rem; }
+/* the sign-off line is a wordmark lockup, not a headline — quieten it */
+.footer-statement__line {
+  font-family: var(--font-body);
+  font-size: var(--step--1);
+  font-weight: 600;
+  letter-spacing: .26em;
+  color: var(--gold-400);
+  margin-top: 1.1rem;
+}
+.footer-brand .social-row { margin-top: .2rem; }
+.site-footer__top { align-items: start; }
+
+/* =========================================================
+   22 RESPONSIVE OVERRIDES (must stay last)
+   Sections 20-21 were appended after section 19, so their
+   single-column rules were being overridden at small widths.
+   Anything width-dependent added after section 19 belongs here.
+   ========================================================= */
+@media (max-width: 1100px) {
+  .quotes { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 860px) {
+  .quotes { grid-template-columns: 1fr; gap: 2rem; }
+  .quote--lead { grid-column: auto; padding-left: 1.6rem; }
+  .quote--lead .quote__text { max-width: none; font-size: 1.2rem; }
+  .quote--lead::before { left: 1rem; font-size: 3.4rem; }
+  .genre { min-height: 150px; }
+  .footer-statement img { height: 50px; margin-bottom: 1.2rem; }
+  .footer-statement__line { letter-spacing: .18em; }
+}
