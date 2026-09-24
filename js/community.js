@@ -21,7 +21,7 @@
     var embed = youtubeEmbed(url);
     if (!embed) return;
     var item = document.createElement('div');
-    item.className = 'community__item';
+    item.className = 'video-tile reveal';
     var f = document.createElement('iframe');
     f.src = embed;
     f.title = 'Community video';
