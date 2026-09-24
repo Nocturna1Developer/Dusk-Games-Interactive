@@ -1729,6 +1729,69 @@ body:not(:has(.hero)) .site-header { border-bottom-color: var(--line); }
 .spec dd { font-size: 1rem; }
 
 /* =========================================================
+   21c POLISH: BLOG + CONTACT
+   ========================================================= */
+
+/* ---- blog shelf ----
+   An auto-fill card grid gave a single post its own column and left an
+   equal column of nothing beside it. A horizontal row fills the measure
+   whether there is one entry or ten. */
+.post-list { display: grid; gap: 0; }
+.post-row {
+  position: relative;
+  display: grid; grid-template-columns: minmax(0, 300px) 1fr;
+  gap: clamp(1.4rem, 3vw, 2.6rem);
+  align-items: center;
+  padding-block: clamp(1.8rem, 3.2vw, 2.6rem);
+  border-top: 1px solid var(--line);
+  transition: padding var(--dur) var(--ease);
+}
+.post-row:last-child { border-bottom: 1px solid var(--line); }
+.post-row:hover { padding-inline-start: .5rem; }
+.post-row__media {
+  position: relative; aspect-ratio: 16 / 10;
+  border-radius: var(--radius); overflow: hidden;
+  background: var(--ink-500); isolation: isolate;
+}
+.post-row__media::before {
+  content: ""; position: absolute; inset: 0;
+  background-image: inherit; background-size: cover; background-position: center;
+  filter: saturate(.96) brightness(.94);
+  transition: transform .8s var(--ease-out), filter .4s var(--ease);
+}
+.post-row__media::after { content: ""; position: absolute; inset: 0; box-shadow: inset 0 0 0 1px var(--line); }
+.post-row:hover .post-row__media::before { transform: scale(1.06); filter: saturate(1) brightness(1.04); }
+.post-row__title {
+  font-size: clamp(1.3rem, 2.1vw, 1.85rem);
+  margin: .55rem 0 .7rem;
+  transition: color var(--dur) var(--ease);
+}
+.post-row:hover .post-row__title { color: var(--gold-300); }
+.post-row__link { position: absolute; inset: 0; z-index: 2; }
+
+/* ---- contact ----
+   Press, Business and Collaboration all resolved to the same address,
+   which read as padding. One honest channel, sized so the address is
+   the thing you notice rather than the label above it. */
+.contact-grid__head {
+  font-size: var(--step-2);
+  margin: 0 0 1.6rem;
+}
+.channel { grid-template-columns: 1fr; gap: .3rem; padding-block: 1.3rem; }
+.channel__label {
+  font-family: var(--font-body);
+  font-size: var(--step--1); font-weight: 600;
+  letter-spacing: .22em; text-transform: uppercase;
+  color: var(--text-2);
+}
+.channel__value {
+  font-family: var(--font-display); text-transform: uppercase;
+  font-size: clamp(1.05rem, 1.7vw, 1.35rem); letter-spacing: .02em;
+  color: var(--text-0);
+}
+.channel:hover .channel__value { color: var(--gold-400); }
+
+/* =========================================================
    22 RESPONSIVE OVERRIDES (must stay last)
    Sections 20-21 were appended after section 19, so their
    single-column rules were being overridden at small widths.
@@ -1737,10 +1800,17 @@ body:not(:has(.hero)) .site-header { border-bottom-color: var(--line); }
 @media (max-width: 1100px) {
   .quotes { grid-template-columns: repeat(2, 1fr); }
 }
+@media (max-width: 900px) {
+  /* a 300px media column leaves the copy about 80px at phone widths */
+  .post-row { grid-template-columns: 1fr; gap: 1.1rem; }
+  .post-row__media { aspect-ratio: 16 / 9; }
+  .post-row:hover { padding-inline-start: 0; }
+}
 @media (max-width: 860px) {
   /* there is no hover on touch, so the card's affordances must be
      visible at rest or they never appear at all */
   .game-card__cue { opacity: 1; transform: none; }
+  .contact-grid__head { font-size: var(--step-2); }
   .quotes { grid-template-columns: 1fr; gap: 2rem; }
   .quote--lead { grid-column: auto; padding-left: 1.6rem; }
   .quote--lead .quote__text { max-width: none; font-size: 1.2rem; }
