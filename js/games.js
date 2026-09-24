@@ -52,7 +52,7 @@ const GAMES = [
     title: "Rubble Rumble",
     genre: "RELEASE DATE TBA · Top Down · Multiplayer · Destruction",
     itch: "",
-    description: "Drop in empty handed. Grab whatever weapon you can find. Blow apart the aerna. Be the last player standing.",
+    description: "Drop in empty handed. Grab whatever weapon you can find. Blow apart the arena. Be the last player standing.",
     cover: "",
     youtube: "",
     screenshots: []

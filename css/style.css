@@ -34,14 +34,15 @@
    01 TOKENS
    ========================================================= */
 :root {
-  /* ---- ground: near-black with only a trace of indigo ---- */
-  --ink-900: #070610;   /* deepest — header, footer, letterbox */
-  --ink-800: #0A0812;   /* page base                           */
-  --ink-700: #0E0C18;   /* page foot of gradient               */
-  --ink-600: #13101F;   /* banded section                      */
-  --ink-500: #181429;   /* card / input surface                */
-  --ink-400: #201B33;   /* raised, hover                       */
-  --ink-300: #2B2444;   /* strongest lift                      */
+  /* ---- ground: charcoal. Neutral greys, no colour cast — the gold
+     is the only hue on the page, which is what keeps it an accent. ---- */
+  --ink-900: #0A0A0B;   /* deepest — header, footer, letterbox */
+  --ink-800: #0F0F10;   /* page base                           */
+  --ink-700: #131314;   /* page foot of gradient               */
+  --ink-600: #17171A;   /* banded section                      */
+  --ink-500: #1C1C1F;   /* card / input surface                */
+  --ink-400: #242428;   /* raised, hover                       */
+  --ink-300: #2F2F34;   /* strongest lift                      */
 
   /* ---- light: the moon ---- */
   --gold-300: #F6DCA8;  /* highlight                           */
@@ -51,21 +52,21 @@
   --ember:    #D9773C;  /* horizon, used almost never          */
 
   /* ---- type ---- */
-  --text-0: #F4F1E9;    /* headings, lead                      */
-  --text-1: #BAB2C8;    /* body                                */
-  --text-2: #8981A0;    /* meta, captions                      */
-  --text-rgb: 244 241 233;
+  --text-0: #F3F1ED;    /* headings, lead                      */
+  --text-1: #B8B5AF;    /* body                                */
+  --text-2: #87847E;    /* meta, captions                      */
+  --text-rgb: 243 241 237;
 
   /* ---- lines: hairlines only, never boxes ---- */
-  --line:        rgb(244 241 233 / .08);
-  --line-hover:  rgb(244 241 233 / .16);
-  --line-strong: rgb(244 241 233 / .22);
+  --line:        rgb(243 241 237 / .08);
+  --line-hover:  rgb(243 241 237 / .16);
+  --line-strong: rgb(243 241 237 / .22);
 
   /* ---- atmosphere ---- */
-  --scrim-rgb: 7 6 16;
-  --overlay:   rgb(7 6 16 / .96);
-  --wash:      rgb(244 241 233 / .03);
-  --wash-2:    rgb(244 241 233 / .06);
+  --scrim-rgb: 10 10 11;
+  --overlay:   rgb(10 10 11 / .96);
+  --wash:      rgb(243 241 237 / .03);
+  --wash-2:    rgb(243 241 237 / .06);
   --shadow-rgb: 0 0 0;
 
   /* ---- state ---- */
