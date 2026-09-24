@@ -1516,3 +1516,67 @@ body:has(.hero) .site-header.is-scrolled {
   :root { --wrap: 1400px; }
   .hero__title { max-width: 14ch; }
 }
+
+/* =========================================================
+   20 POLISH PASS
+   Art-direction corrections made after reviewing the rendered
+   result rather than the code.
+   ========================================================= */
+
+/* The hero is the one place a larger scale is earned. Everything
+   else stays restrained so this reads as emphasis, not shouting. */
+.hero__title { font-size: clamp(2.5rem, 1.6rem + 4.2vw, 5.7rem); }
+
+/* A perpetual scroll cue is constant movement. Retire it the moment
+   the page actually moves, so it never becomes wallpaper. */
+.hero__cue { transition: opacity .4s var(--ease), visibility .4s var(--ease); }
+body:has(.site-header.is-scrolled) .hero__cue { opacity: 0; visibility: hidden; }
+
+/* Section rhythm: alternating a faint ground stops the homepage
+   reading as one long column of identical blocks. The step is small
+   enough to feel like depth rather than stripes. */
+.section--sunk {
+  background:
+    linear-gradient(180deg, transparent, rgb(var(--scrim-rgb) / .55) 18%, rgb(var(--scrim-rgb) / .55) 82%, transparent);
+}
+
+/* Featured cards sit on the page, not in a box — give the catalogue
+   a touch more air so the tiles read as plates, not a contact sheet. */
+.catalogue { gap: clamp(1.8rem, 3.2vw, 3rem); }
+
+/* The reveal block's art needs a hard edge against the bleed behind it */
+.reveal-game__art { outline: 1px solid var(--line); outline-offset: -1px; }
+
+/* Quote marks: let the attribution breathe under the line */
+.quote { padding-block: .2rem; }
+.quote__by { line-height: 1.5; }
+
+/* Footer wordmark is a sign-off, not a second hero */
+.footer-statement__mark { font-size: clamp(1.9rem, 1.3rem + 2.4vw, 3.2rem); letter-spacing: .04em; }
+.footer-statement img { opacity: .88; }
+
+/* Genre strip: the label should sit on the art, not float above it */
+.genre span { text-shadow: 0 2px 14px rgb(var(--shadow-rgb) / .9); }
+
+/* Page masthead: tie the eyebrow to the title with tighter leading */
+.page-head .eyebrow { margin-bottom: .9rem; }
+
+/* Interior pages have no hero, so the sticky bar needs its edge from
+   the first pixel rather than only after a scroll. */
+body:not(:has(.hero)) .site-header { border-bottom-color: var(--line); }
+
+/* Rubble Rumble only ships one key image, so the reveal block was
+   showing the same poster twice — once behind, once in the panel.
+   Push the backdrop far out of focus so it reads as atmosphere and
+   the panel stays the only legible copy of the art. */
+.reveal-game__bg::before {
+  transform: scale(1.9);
+  filter: blur(14px) saturate(.55) brightness(.32);
+}
+
+/* The genre strip was a thin banner with dead air above it. Give it
+   real presence and pull it up under the divider. */
+.genre { min-height: clamp(190px, 24vw, 300px); padding: 1.4rem 1.3rem; }
+.genre span { font-size: clamp(.95rem, 1.6vw, 1.3rem); }
+.moon-divider { margin-bottom: clamp(1.4rem, 2.5vw, 2rem); }
+.genres + *, .section--tight:has(.genres) { padding-bottom: 0; }
