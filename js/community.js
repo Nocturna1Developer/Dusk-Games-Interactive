@@ -6,7 +6,6 @@
   if (!grid) return;
 
   var VIDEOS = [
-    "https://www.youtube.com/watch?v=zNGz922bPyo",
     "https://www.youtube.com/watch?v=uGv_skjWO0Q",
     "https://www.youtube.com/watch?v=ZDAoqgfvDxg",
     "https://www.youtube.com/watch?v=c9F_RENkoe4",
