@@ -510,18 +510,6 @@ body:has(.hero) .site-header.is-scrolled {
   background: linear-gradient(90deg, transparent, var(--line-strong) 22%, var(--line-strong) 78%, transparent);
 }
 
-/* the moon mark as a section break */
-.moon-divider {
-  display: flex; align-items: center; justify-content: center; gap: 1.3rem;
-  margin: 0 0 clamp(2rem, 4vw, 3rem);
-}
-.moon-divider::before, .moon-divider::after {
-  content: ""; height: 1px; width: min(120px, 22vw);
-}
-.moon-divider::before { background: linear-gradient(90deg, transparent, rgb(var(--gold-rgb) / .5)); }
-.moon-divider::after  { background: linear-gradient(90deg, rgb(var(--gold-rgb) / .5), transparent); }
-.moon-divider img { height: 26px; width: auto; opacity: .9; }
-
 /* ---- studio statement: asymmetric art pair ---- */
 .studio-grid {
   display: grid; grid-template-columns: .95fr 1.05fr;
@@ -817,33 +805,6 @@ body:has(.hero) .site-header.is-scrolled {
   box-shadow: inset 0 0 0 1px var(--line), 0 40px 80px -30px rgb(var(--shadow-rgb) / .9);
 }
 
-/* genre strip — artwork behind each word */
-.genres { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px; background: var(--line); border-block: 1px solid var(--line); }
-.genre {
-  position: relative; isolation: isolate; overflow: hidden;
-  min-height: clamp(140px, 17vw, 210px);
-  display: flex; align-items: flex-end;
-  padding: 1.1rem 1rem;
-  background: var(--ink-800);
-}
-.genre::before {
-  content: ""; position: absolute; inset: 0; z-index: -1;
-  background-image: inherit; background-size: cover; background-position: center;
-  filter: saturate(.5) brightness(.42);
-  transform: scale(1.04);
-  transition: transform .9s var(--ease-out), filter .5s var(--ease);
-}
-.genre::after {
-  content: ""; position: absolute; inset: 0; z-index: -1;
-  background: linear-gradient(0deg, rgb(var(--scrim-rgb) / .92) 0%, rgb(var(--scrim-rgb) / .5) 60%, rgb(var(--scrim-rgb) / .35) 100%);
-}
-.genre:hover::before { transform: scale(1.12); filter: saturate(.85) brightness(.62); }
-.genre span {
-  font-family: var(--font-display); text-transform: uppercase;
-  font-size: clamp(.85rem, 1.4vw, 1.15rem); letter-spacing: .06em;
-  color: var(--text-0);
-}
-
 /* forms */
 .field { margin-bottom: 1.3rem; }
 .field label {
@@ -1091,7 +1052,6 @@ body:has(.hero) .site-header.is-scrolled {
   }
   .hero__cue i::after { animation: none; }
 }
-
 
 /* =========================================================
    18 DEVLOG (long-form article pages)
@@ -1419,7 +1379,7 @@ body:has(.hero) .site-header.is-scrolled {
 @media (max-width: 1100px) {
   .catalogue--3 { grid-template-columns: repeat(2, 1fr); }
   .quotes { grid-template-columns: repeat(2, 1fr); }
-  .genres { grid-template-columns: repeat(3, 1fr); }
+
 }
 
 /* ---- short screens: hero must never push the CTA off ---- */
@@ -1493,7 +1453,7 @@ body:has(.hero) .site-header.is-scrolled {
 
   .catalogue--3, .catalogue--2, .catalogue--feature { grid-template-columns: 1fr; }
   .quotes { grid-template-columns: 1fr; }
-  .genres { grid-template-columns: repeat(2, 1fr); }
+
   .chapter { grid-template-columns: 1fr; gap: .8rem; }
   .chapter__num { font-size: 1.1rem; }
   .site-footer__top { grid-template-columns: 1fr; gap: 2.2rem; }
@@ -1506,8 +1466,7 @@ body:has(.hero) .site-header.is-scrolled {
 }
 
 @media (max-width: 560px) {
-  .genres { grid-template-columns: 1fr 1fr; }
-  .genre { min-height: 120px; }
+
   .social-row a { width: 44px; height: 44px; }
   .reel__meta { gap: .4rem 1rem; }
 }
@@ -1556,10 +1515,6 @@ body:has(.site-header.is-scrolled) .hero__cue { opacity: 0; visibility: hidden; 
 .footer-statement__mark { font-size: clamp(1.9rem, 1.3rem + 2.4vw, 3.2rem); letter-spacing: .04em; }
 .footer-statement img { opacity: .88; }
 
-/* Genre strip: the label should sit on the art, not float above it */
-.genre span { text-shadow: 0 2px 14px rgb(var(--shadow-rgb) / .9); }
-
-/* Page masthead: tie the eyebrow to the title with tighter leading */
 .page-head .eyebrow { margin-bottom: .9rem; }
 
 /* Interior pages have no hero, so the sticky bar needs its edge from
@@ -1574,13 +1529,6 @@ body:not(:has(.hero)) .site-header { border-bottom-color: var(--line); }
   transform: scale(1.9);
   filter: blur(14px) saturate(.55) brightness(.32);
 }
-
-/* The genre strip was a thin banner with dead air above it. Give it
-   real presence and pull it up under the divider. */
-.genre { min-height: clamp(190px, 24vw, 300px); padding: 1.4rem 1.3rem; }
-.genre span { font-size: clamp(.95rem, 1.6vw, 1.3rem); }
-.moon-divider { margin-bottom: clamp(1.4rem, 2.5vw, 2rem); }
-.genres + *, .section--tight:has(.genres) { padding-bottom: 0; }
 
 /* =========================================================
    21 POLISH: QUOTES + FOOTER
@@ -1815,7 +1763,7 @@ body:not(:has(.hero)) .site-header { border-bottom-color: var(--line); }
   .quote--lead { grid-column: auto; padding-left: 1.6rem; }
   .quote--lead .quote__text { max-width: none; font-size: 1.2rem; }
   .quote--lead::before { left: 1rem; font-size: 3.4rem; }
-  .genre { min-height: 150px; }
+
   .footer-statement img { height: 50px; margin-bottom: 1.2rem; }
   .footer-statement__line { letter-spacing: .18em; }
 }
